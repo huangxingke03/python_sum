@@ -10,9 +10,7 @@ import sys
 print("。。。。。开始读取xml语言资源。。。。。")
 file_path_en = "/home/huangxingke/work/code/workCode/VoiceAssistant/International/src/main/res/values-en/strings.xml"
 file_path_es = "/home/huangxingke/work/code/workCode/VoiceAssistant/International/src/main/res/values-es/strings.xml"
-excel_path = (
-    "/home/huangxingke/project/Python/Code/resource/excel/CL_JT_CS_FY_000-1.xlsx"
-)
+excel_path = "/home/huangxingke/project/Python/resource/excel/CL_JT_CS_FY_000-1.xlsx"
 
 
 def read_xml_file(file_path):
