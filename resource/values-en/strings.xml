@@ -1,0 +1,690 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="try_to_say_hello">Try to say \"hello, jetour\"</string>
+    <string name="answer_ok">OK</string>
+    <string name="answer_no_function">Sorry, this function is not available to this model</string>
+    <string name="answer_no_music">Sorry, no playable music have been found</string>
+    <string name="answer_no_favourite">Sorry, no music favourite function</string>
+    <string name="answer_added_to_favourite">Station added to favourite</string>
+    <string name="answer_media_cancel_collect">Station removed from favourite</string>
+    <string name="answer_media_no_cancel_collect">Sorry, no music favourite function</string>
+    <string name="answer_media_mode_switch_cycle">Switched to loop playback mode</string>
+    <string name="answer_media_mode_switch_random">Switched to shuffle mode</string>
+    <string name="answer_media_mode_switch_single_cycle">Switched to Single Cycle mode</string>
+    <string name="answer_media_scan">Searching for stations</string>
+    <string name="answer_media_cancel_scan">Station scanning cancelled</string>
+    <string name="answer_media_open_video">USB video is opened; please select to play manually</string>
+    <string name="answer_media_open_video_no">Connect USB, and try again</string>
+    <string name="answer_media_open_music_list">No playlist is found</string>
+    <string name="answer_media_listen_music">Sorry, no playable music is found</string>
+    <string name="answer_media_music_none">Sorry, no USB music is found</string>
+    <string name="answer_media_usb_none">Connect USB, and try again</string>
+    <string name="answer_media_blue_none">Connect Bluetooth, and try again</string>
+    <string name="answer_media_usb_song_none">Sorry, this song is not found</string>
+    <string name="answer_media_radio_favourite">No station in favourite is found</string>
+    <string name="answer_common_third_party_error">Sorry, system error, please try again later</string>
+    <string name="answer_hvac_ac_switch_open">A/C Cooling ON</string>
+    <string name="answer_hvac_ac_switch_close">A/C Cooling OFF</string>
+    <string name="answer_hvac_switch_circulation_external">Switched to external circulation</string>
+    <string name="answer_hvac_switch_circulation_internal"> Switched to internal circulation</string>
+    <string name="answer_hvac_wind_speed_control_max"> A/C blower speed adjusted to the top gear</string>
+    <string name="answer_hvac_wind_speed_control_min"> A/C blower speed adjusted to the bottom gear</string>
+    <string name="answer_hvac_wind_speed_control_middle"> A/C blower speed adjusted to the medium gear</string>
+    <string name="answer_hvac_wind_speed_control_little_max"> A/C blower speed is the maximum</string>
+    <string name="answer_hvac_wind_speed_control_little_min"> A/C blower speed is the minimum</string>
+    <string name="answer_hvac_wind_speed_control_little_up">A/C blower speed increased</string>
+    <string name="answer_hvac_wind_speed_control_little_down">A/C blower speed decreased</string>
+    <string name="answer_hvac_is_close">A/C is not on now</string>
+    <string name="answer_hvac_setFanSpeed_max">A/C blower speed adjusted to the maximum</string>
+    <string name="answer_hvac_setFanSpeed_min">A/C blower speed adjusted to the minimum</string>
+    <string name="answer_hvac_setFanSpeed">A/C blower speed adjusted</string>
+    <string name="answer_hvac_blow_mode_defog">Switched to Footwell and Defrost Mode</string>
+    <string name="answer_hvac_blow_mode_down">Switched to Footwell Mode</string>
+    <string name="answer_hvac_blow_mode_up">Switched to Face Mode</string>
+    <string name="answer_hvac_blow_mode_up_down">Switched to Face and Footwell Mode</string>
+    <string name="answer_hvac_front_defrost_open">Front defrost ON</string>
+    <string name="answer_hvac_front_defrost_close">Front defrost OFF</string>
+    <string name="answer_hvac_rear_defrost_open">Rear defrost ON</string>
+    <string name="answer_hvac_rear_defrost_close">Rear defrost OFF</string>
+    <string name="answer_hvac_ac_auto_open">A/C Auto Mode ON</string>
+    <string name="answer_hvac_ac_auto_close">A/C Auto Mode OFF</string>
+    <string name="answer_hvac_mode_custom_eco">Switched to Energy Saving mode</string>
+    <string name="answer_hvac_mode_custom_comfort">Switched to Comfort Mode</string>
+    <string name="answer_hvac_mode_custom_robust">Switched to Robust Mode</string>
+    <string name="answer_hvac_sync_open">Temperature Synchronization ON</string>
+    <string name="answer_hvac_sync_close">Temperature Synchronization OFF</string>
+    <string name="answer_hvac_purification_open">Air purifier ON</string>
+    <string name="answer_hvac_purification_close">Air purifier OFF</string>
+    <string name="answer_hvac_power_first_breath_open">Voice is not supported for this function</string>
+    <string name="answer_hvac_power_first_breath_close">Voice is not supported for this function</string>
+    <string name="answer_hvac_temperature_max">A/C temperature adjusted to the maximum</string>
+    <string name="answer_hvac_temperature_min">A/C temperature adjusted to the minimum</string>
+    <string name="answer_hvac_temperature">A/C temperature adjusted in place</string>
+    <string name="answer_hvac_temperature_being_max">A/C temperature is the maximum</string>
+    <string name="answer_hvac_temperature_being_min">A/C temperature is the minimum</string>
+    <string name="answer_hvac_temperature_being">A/C temperature adjusted in place</string>
+    <string name="answer_hvac_temperature_decreased">A/C temperature decreased</string>
+    <string name="answer_hvac_temperature_increased">A/C temperature increased</string>
+    <string name="answer_hvac_temperature_is_max">A/C temperature adjusted to the maximum</string>
+    <string name="answer_hvac_temperature_is_min">A/C temperature adjusted to the minimum</string>
+    <string name="answer_hvac_temperature_gear_adjusted_in_place">A/C temperature gear adjusted in place</string>
+    <string name="answer_hvac_temperature_being_the_maximum">A/C temperature is the maximum</string>
+    <string name="answer_hvac_temperature_being_the_minimum">A/C temperature is the minimum</string>
+    <string name="answer_hvac_cooling_adjusted_to_the_top_gear">Cooling adjusted to the top gear</string>
+    <string name="answer_hvac_heating_adjusted_to_the_top_gear">Heating adjusted to the top gear</string>
+    <string name="answer_hvac_heating_adjusted_to_the_bottom_gear">Heating adjusted to the bottom gear</string>
+    <string name="answer_hvac_cooling_adjusted_to_the_bottom_gear">Cooling adjusted to the bottom gear</string>
+    <string name="answer_hvac_temperature_heating_gear_adjusted_in_place">A/C temperature heating gear adjusted in place</string>
+    <string name="answer_hvac_temperature_cooling_gear_adjusted_in_place">A/C temperature cooling gear adjusted in place</string>
+
+    <string name="answer_vehicle_none">Voice is not supported for this function</string>
+    <string name="answer_vehicle_vehicle_trunk">Page is opened; please operate manually</string>
+
+    <string name="answer_vehicle_atmosphere_single_colour_on">Single-colour ambient lamp ON</string>
+    <string name="answer_vehicle_atmosphere_single_colour_off">Single-colour ambient lamp OFF</string>
+    <string name="answer_vehicle_atmosphere_music_rhythm_on">Music rhythm ON</string>
+    <string name="answer_vehicle_atmosphere_music_rhythm_is_off">Turn on the ambient lamp before adjustment</string>
+    <string name="answer_vehicle_atmosphere_music_rhythm_off">Music rhythm OFF</string>
+
+    <string name="answer_vehicle_rmafold_on">Automatic Rearview Mirror Folding When Locking ON</string>
+    <string name="answer_vehicle_rmafold_off">Automatic Rearview Mirror Folding When Locking OFF</string>
+    <string name="answer_vehicle_vehicle_steer_wheel_on">Steering wheel heater ON</string>
+    <string name="answer_vehicle_vehicle_steer_wheel_off">Steering wheel heater OFF</string>
+    <string name="answer_vehicle_not_available">This function is not available to the vehicle now</string>
+    <string name="answer_vehicle_headlight_delay_on">Follow Me Home ON</string>
+    <string name="answer_vehicle_headlight_delay_off">Follow Me Home OFF</string>
+    <string name="answer_vehicle_automatic_lock_on">Automatic Lock ON</string>
+    <string name="answer_vehicle_automatic_lock_off">Automatic Lock OFF</string>
+    <string name="answer_vehicle_seat_heat_isMax_all">All seat temperature adjusted to the maximum</string>
+    <string name="answer_vehicle_seat_heat_isMin_all">All seat temperature adjusted to the minimum</string>
+    <string name="answer_vehicle_seat_heat_all">All seat temperature adjusted in place</string>
+    <string name="answer_vehicle_seat_heat_all_isUp">All seat temperature increased</string>
+    <string name="answer_vehicle_seat_heat_all_isDown">All seat temperature decreased</string>
+    <string name="answer_vehicle_seat_heat_all_isClose">All seat heating not on</string>
+    <string name="answer_vehicle_seat_heat_fl_isClose">Driver seat heating not on</string>
+    <string name="answer_vehicle_seat_heat_fr_isClose">Front passenger seat heating not on</string>
+    <string name="answer_vehicle_seat_heat_none">No seat heating provided here</string>
+    <string name="answer_vehicle_seat_heat_isMax_fl">Driver seat temperature adjusted to the maximum</string>
+    <string name="answer_vehicle_seat_heat_isMax_fr">Front passenger seat temperature adjusted to the maximum</string>
+    <string name="answer_vehicle_seat_heat_isMin_fl">Driver seat temperature adjusted to the minimum</string>
+    <string name="answer_vehicle_seat_heat_isMin_fr">Front passenger seat temperature adjusted to the minimum</string>
+    <string name="answer_vehicle_seat_heat_fl">Driver seat temperature adjusted in place</string>
+    <string name="answer_vehicle_seat_heat_fr">Front passenger seat temperature adjusted in place</string>
+
+    <string name="answer_vehicle_seat_heat_being_Max_fl">Driver seat temperature being the maximum</string>
+    <string name="answer_vehicle_seat_heat_being_Max_fr">Front passenger seat temperature being the maximum</string>
+    <string name="answer_vehicle_seat_heat_being_Max_front">Front seat temperature being the maximum</string>
+    <string name="answer_vehicle_seat_heat_being_Max_all">All seat temperature being the maximum</string>
+
+    <string name="answer_vehicle_seat_heat_being_Min_fl">Driver seat temperature being the minimum</string>
+    <string name="answer_vehicle_seat_heat_being_Min_fr">Front passenger seat temperature being the minimum</string>
+    <string name="answer_vehicle_seat_heat_being_Min_front">Front seat temperature being the minimum</string>
+    <string name="answer_vehicle_seat_heat_being_Min_all">All seat temperature being the minimum</string>
+
+    <string name="answer_vehicle_seat_heat_increase_done_fl">Driver seat temperature increased</string>
+    <string name="answer_vehicle_seat_heat_increase_done_fr">Front passenger seat temperature increased</string>
+    <string name="answer_vehicle_seat_heat_increase_done_front">Front seat temperature increased</string>
+    <string name="answer_vehicle_seat_heat_increase_done_all">All seat temperature increased</string>
+
+    <string name="answer_vehicle_seat_heat_decrease_done_fl">Driver seat temperature decreased</string>
+    <string name="answer_vehicle_seat_heat_decrease_done_fr">Front passenger seat temperature decreased</string>
+    <string name="answer_vehicle_seat_heat_decrease_done_front">Front seat temperature decreased</string>
+    <string name="answer_vehicle_seat_heat_decrease_done_all">All seat temperature decreased</string>
+
+    <string name="answer_vehicle_seat_ventilation_isMax_all">All seat blower speed adjusted to the maximum</string>
+    <string name="answer_vehicle_seat_ventilation_isMin_all">All seat blower speed adjusted to the minimum</string>
+    <string name="answer_vehicle_seat_ventilation_all">All seat blower speed adjusted in place</string>
+    <string name="answer_vehicle_seat_ventilation_Max_all">All seat blower speed being the maximum</string>
+    <string name="answer_vehicle_seat_ventilation_Min_all">All seat blower speed being the minimum</string>
+
+    <string name="answer_vehicle_seat_ventilation_isMax_fl">Driver seat blower speed being the maximum</string>
+    <string name="answer_vehicle_seat_ventilation_isMax_fr">Front passenger seat blower speed being the maximum</string>
+    <string name="answer_vehicle_seat_ventilation_isMin_fl">Driver seat blower speed adjusted to the minimum</string>
+    <string name="answer_vehicle_seat_ventilation_isMin_fr">Front passenger seat blower speed adjusted to the minimum</string>
+    <string name="answer_vehicle_seat_ventilation_fl">Driver seat blower speed adjusted in place</string>
+    <string name="answer_vehicle_seat_ventilation_fr">Front passenger seat blower speed adjusted in place</string>
+
+    <string name="answer_vehicle_seat_ventilation_wasMax_fl">Driver seat blower speed adjusted to the maximum</string>
+    <string name="answer_vehicle_seat_ventilation_wasMax_fr">Front passenger seat blower speed adjusted to the maximum</string>
+    <string name="answer_vehicle_seat_ventilation_wasMin_fl">Driver seat blower speed adjusted to the minimum</string>
+    <string name="answer_vehicle_seat_ventilation_wasMin_fr">Front passenger seat blower speed adjusted to the minimum</string>
+
+    <string name="answer_cmd_screen_brightness_height">Screen brightness increased</string>
+    <string name="answer_cmd_screen_brightness_low">Screen brightness decreased</string>
+    <string name="answer_cmd_screen_brightness_max">Screen brightness adjusted to the maximum</string>
+    <string name="answer_cmd_screen_brightness_min">Screen brightness adjusted to the minimum</string>
+    <string name="answer_cmd_beep_open">Key tone ON</string>
+    <string name="answer_cmd_beep_close">Key tone OFF</string>
+    <string name="answer_cmd_screen_saver_open">Screensaver is enabled</string>
+
+    <string name="answer_volume_already_set">Already at specified volume</string>
+    <string name="answer_cmd_media_volume_little_max">Multimedia volume increased</string>
+    <string name="answer_cmd_media_volume_little_min">Multimedia volume decreased</string>
+    <string name="answer_cmd_media_volume_max">Multimedia volume adjusted to the maximum</string>
+    <string name="answer_cmd_media_volume_min">Multimedia volume adjusted to the minimum</string>
+    <string name="answer_cmd_media_volume_potison">Multimedia volume adjusted in place</string>
+    <string name="answer_cmd_media_volume_muted">Multimedia muted</string>
+    <string name="answer_cmd_media_volume_unmuted">Multimedia sound ON</string>
+
+    <string name="answer_cmd_telephone_volume_little_max">Phone volume increased</string>
+    <string name="answer_cmd_telephone_volume_little_min">Phone volume decreased</string>
+    <string name="answer_cmd_telephone_volume_max">Phone volume adjusted to the maximum</string>
+    <string name="answer_cmd_telephone_volume_min">Phone volume adjusted to the minimum</string>
+    <string name="answer_cmd_telephone_volume_potison">Phone volume adjusted in place</string>
+    <string name="answer_cmd_telephone_volume_muted">Phone muted</string>
+    <string name="answer_cmd_telephone_volume_unmuted">Phone sound ON</string>
+    <string name="answer_cmd_telephone_volume_unmuted_no">Phone not muted</string>
+
+
+    <string name="answer_cmd_voice_volume_little_max">Voice volume increased</string>
+    <string name="answer_cmd_voice_volume_little_min">Voice volume decreased</string>
+    <string name="answer_cmd_voice_volume_max">Voice volume adjusted to the maximum</string>
+    <string name="answer_cmd_voice_volume_min">Voice volume adjusted to the minimum</string>
+    <string name="answer_cmd_voice_volume_potison">Voice volume adjusted in place</string>
+    <string name="answer_cmd_voice_volume_muted">Voice muted</string>
+    <string name="answer_cmd_voice_volume_unmuted">Voice sound ON</string>
+    <string name="answer_cmd_voice_volume_unmuted_no">Voice not muted</string>
+
+    <string name="answer_cmd_poweron_bgm_volume_little_max">Boot sound increased</string>
+    <string name="answer_cmd_poweron_bgm_volume_little_min">Boot sound decreased</string>
+    <string name="answer_cmd_poweron_bgm_volume_max">Boot sound adjusted to the maximum</string>
+    <string name="answer_cmd_poweron_bgm_volume_min">Boot sound adjusted to the minimum</string>
+    <string name="answer_cmd_poweron_bgm_volume_potison">Boot sound volume adjusted to the minimum</string>
+    <string name="answer_cmd_poweron_bgm_volume_muted">Boot sound muted</string>
+    <string name="answer_cmd_poweron_bgm_volume_unmuted">Boot sound ON</string>
+    <string name="answer_cmd_poweron_bgm_volume_unmuted_no">Boot sound not muted</string>
+    <!--T1L新增-导航音量调节-->
+    <string name="answer_Navigation_volume_muted">Navigation volume muted</string>
+    <string name="answer_Navigation_volume_unavailable_now">Navigation volume adjustment unavailable now</string>
+    <string name="answer_Navigation_volume_not_muted">Navigation volume not muted</string>
+    <string name="answer_Navigation_volume_increased">Navigation volume increased</string>
+    <string name="answer_Navigation_volume_adjusted_to_the_maximum">Navigation volume adjusted to the maximum</string>
+    <string name="answer_Navigation_volume_decreased">Navigation volume decreased</string>
+    <string name="answer_Navigation_volume_adjusted_to_the_minimum">Navigation volume adjusted to the minimum</string>
+    <string name="answer_Navigation_volume_adjusted_in_place">Navigation volume adjusted in place</string>
+    <string name="answer_Navigation_volume_sound_on">Navigation sound ON</string>
+
+    <string name="answer_cmd_dashboard_display_volume_high">Instrument volume adjusted to high</string>
+    <string name="answer_cmd_dashboard_display_volume_mid">Instrument volume adjusted to medium</string>
+    <string name="answer_cmd_dashboard_display_volume_min">Instrument volume adjusted to low</string>
+    <string name="answer_media_usb_video_none">No media is playing now</string>
+    <string name="answer_blue_on">Bluetooth ON</string>
+    <string name="answer_blue_off"> Bluetooth OFF</string>
+    <string name="answer_wireless_charge_on">Wireless charging for mobile phones is on by default</string>
+    <string name="answer_wireless_charge_off">Wireless charging for mobile phones is on by default</string>
+    <string name="answer_phone_remind_on">Mobile Phone Forget Reminder is on by default</string>
+    <string name="answer_phone_remind_off">Mobile Phone Forget Reminder is on by default</string>
+    <string name="answer_ac_max_on">A/C MAX ON</string>
+    <string name="answer_ac_max_off">A/C MAX OFF</string>
+    <string name="answer_ac_rear_on">REAR ON</string>
+    <string name="answer_ac_rear_off">REAR OFF</string>
+    <string name="answer_set_seat_heating_none">No seat heating provided here</string>
+    <string name="answer_set_seat_ventilation_none">No seat ventilation provided here</string>
+    <string name="answer_vehicle_seat_heat_isMax_front">Front seat temperature adjusted to the maximum</string>
+    <string name="answer_vehicle_seat_heat_isMin_front">Front seat temperature adjusted to the minimum</string>
+    <string name="answer_vehicle_seat_heat_front">Front seat temperature adjusted in place</string>
+    <string name="answer_vehicle_seat_heat_front_isUp">Front seat temperature increased</string>
+    <string name="answer_vehicle_seat_heat_front_isClose">Front seat heating not on</string>
+    <string name="answer_vehicle_seat_heat_front_isDown">Front seat temperature decreased</string>
+
+    <string name="answer_vehicle_seat_ventilation_fl_isClose">Driver seat ventilation not on</string>
+    <string name="answer_vehicle_seat_ventilation_fr_isClose">Front passenger seat ventilation not on</string>
+    <string name="answer_vehicle_seat_ventilation_front_isClose">Front seat ventilation not on</string>
+    <string name="answer_vehicle_seat_ventilation_all_isClose">All seat ventilation not on</string>
+
+    <string name="answer_vehicle_seat_ventilation_increase_done_fl">Driver seat blower speed increased</string>
+    <string name="answer_vehicle_seat_ventilation_increase_done_fr">Front passenger seat blower speed increased</string>
+    <string name="answer_vehicle_seat_ventilation_increase_done_front">Front seat blower speed increased</string>
+    <string name="answer_vehicle_seat_ventilation_increase_done_all">All seat blower speed increased</string>
+
+    <string name="answer_vehicle_seat_ventilation_being_Min_fl">Driver seat blower speed being the minimum</string>
+    <string name="answer_vehicle_seat_ventilation_being_Min_fr">Front passenger seat blower speed being the minimum</string>
+    <string name="answer_vehicle_seat_ventilation_being_Min_front">Front seat blower speed being the minimum</string>
+    <string name="answer_vehicle_seat_ventilation_being_Min_all">All seat blower speed being the minimum</string>
+
+    <string name="answer_vehicle_seat_ventilation_decrease_done_fl">Driver seat blower speed decreased</string>
+    <string name="answer_vehicle_seat_ventilation_decrease_done_fr">Front passenger seat blower speed decreased</string>
+    <string name="answer_vehicle_seat_ventilation_decrease_done_front">Front seat blower speed decreased</string>
+    <string name="answer_vehicle_seat_ventilation_decrease_done_all">All seat blower speed decreased</string>
+
+    <string name="answer_vehicle_seat_ventilation_isMax_front">Front seat blower speed adjusted to the maximum</string>
+    <string name="answer_vehicle_seat_ventilation_isMin_front">Front seat blower speed adjusted to the minimum</string>
+    <string name="answer_vehicle_seat_ventilation_front">Front seat blower speed adjusted in place</string>
+    <string name="answer_vehicle_seat_ventilation_Max_front">Front seat blower speed being the maximum</string>
+    <string name="answer_vehicle_seat_ventilation_Min_front">Front seat blower speed being the minimum</string>
+
+    <string name="answer_ambient_light_color_rhythm_mode">In ambient lamp music rhythm mode, color adjustment is unavailable</string>
+    <string name="answer_ambient_light_color_panchromatic">In ambient lamp panchromatic breathing mode, color adjustment is unavailable</string>
+    <string name="answer_ambient_light_color_no_exist">Voice is not supported now; please operate manually</string>
+
+    <!--氛围灯亮度回复语 -->
+    <string name="answer_ambient_light_switch_monochrome">In ambient lamp monochromatic breathing mode, brightness adjustment is unavailable</string>
+    <string name="answer_ambient_light_music_mode">In ambient lamp music rhythm mode, brightness adjustment is unavailable</string>
+    <string name="answer_ambient_light_switch_off">Turn on the ambient lamp before adjustment</string>
+    <string name="answer_ambient_light_set">Ambient lamp brightness adjusted in place</string>
+    <string name="answer_ambient_light_set_max">Ambient lamp brightness adjusted to the maximum</string>
+    <string name="answer_ambient_light_set_min">Ambient lamp brightness adjusted to the minimum</string>
+    <string name="answer_ambient_light_set_little_max">Ambient lamp brightness being the maximum</string>
+    <string name="answer_ambient_light_set_little_min">Ambient lamp brightness being the minimum</string>
+    <string name="answer_ambient_light_set_add">Ambient lamp brightness increased</string>
+    <string name="answer_ambient_light_set_low">Ambient lamp brightness decreased</string>
+
+    <string name="answer_ambient_light_mono_colour_breathe">Ambient lamp switched to Monochromatic Breathing mode</string>
+    <string name="answer_ambient_light_full_colour_breathe">Ambient lamp switched to Panchromatic Breathing mode</string>
+    <string name="answer_automatic_emergency_brake_system_on">Automatic Emergency Braking ON</string>
+    <string name="answer_automatic_emergency_brake_system_off">To disable Automatic Emergency Braking, please confirm again in the pop-up window</string>
+
+    <string name="answer_forward_colwarning_on">Forward Collision Warning ON</string>
+    <string name="answer_forward_colwarning_off">To disable Forward Collision Warning, please confirm again in the pop-up window</string>
+
+    <string name="answer_sensitivity_far">Forward Collision Warning Sensitivity set to Far</string>
+    <string name="answer_sensitivity_mid">Forward Collision Warning Sensitivity set to Medium</string>
+    <string name="answer_sensitivity_near">Forward Collision Warning Sensitivity set to Near</string>
+
+    <string name="answer_lane_keep_on">Lane Keeping ON</string>
+    <string name="answer_lane_keep_none_on">Lane Keeping is not on</string>
+    <string name="answer_lane_keep_off">Lane Keeping OFF</string>
+
+    <string name="answer_lane_departure_warn_on">Lane Departure Warning ON</string>
+    <string name="answer_lane_departure_warn_none_on">Lane Departure Warning is not on</string>
+    <string name="answer_lane_departure_warn_off">Lane Departure Warning OFF</string>
+
+    <string name="answer_lane_keep_assist_off">Lane Keeping Assist OFF</string>
+
+
+    <string name="answer_lane_departure_warns_low">Lane Departure Warning Sensitivity set to Low</string>
+    <string name="answer_lane_departure_warns_hig">Lane Departure Warning Sensitivity set to High</string>
+
+
+    <string name="answer_blind_spot_monitor_on">Blind Spot Monitoring ON</string>
+    <string name="answer_blind_spot_monitor_off">Blind Spot Monitoring OFF</string>
+
+
+    <string name="answer_backward_colwarning_on">Rearward Collision Warning ON</string>
+    <string name="answer_backward_colwarning_off">Rearward Collision Warning OFF</string>
+
+
+    <string name="answer_integrated_cruise_assist_on">Integrated Cruise Assist ON</string>
+    <string name="answer_integrated_cruise_assist_off">Integrated Cruise Assist OFF</string>
+
+
+    <string name="answer_safe_distance_alarm_on">Safe Distance Warning ON</string>
+    <string name="answer_safe_distance_alarm_off">Safe Distance Warning OFF</string>
+
+
+    <string name="answer_smart_pilot_exit_reminder_on">Smart Pilot Exit Reminder ON</string>
+    <string name="answer_smart_pilot_exit_reminder_off">Smart Pilot Exit Reminder OFF</string>
+
+
+    <string name="answer_smart_start_stop_on">Auto Start-Stop ON</string>
+    <string name="answer_smart_start_stop_off">Auto Start-Stop OFF</string>
+
+
+    <string name="answer_intelligent_high_and_low_beam_on">Intelligent High/Low Beam ON</string>
+    <string name="answer_intelligent_high_and_low_beam_off">Intelligent High/Low Beam OFF</string>
+
+
+    <string name="answer_radar_on">Parking Radar ON</string>
+    <string name="answer_radar_off">Parking Radar OFF</string>
+
+
+    <string name="answer_speedlimit_sign_identification_on">Speed Limit Sign Recognition ON</string>
+    <string name="answer_speedlimit_sign_identification_off">Speed Limit Sign Recognition OFF</string>
+
+
+    <string name="answer_dooropen_warning_on">Door Opening Warning ON</string>
+    <string name="answer_dooropen_warning_off">Door Opening Warning OFF</string>
+
+
+    <string name="answer_welcom_on">Welcome Mode ON</string>
+    <string name="answer_dwelcom_off">Welcome Mode OFF</string>
+
+    <string name="answer_no_music_playing">No music is playing now</string>
+    <string name="answer_no_video">No video is playing now</string>
+    <!-- 主题切换-->
+    <string name="answer_day_mode"> Switched to Day Mode</string>
+    <string name="answer_night_mode"> Switched to Night Mode</string>
+    <string name="answer_auto_mode"> Switched to Auto Mode</string>
+
+    <!--语言切换-->
+    <string name="answer_language_english"> System language is set to English</string>
+    <string name="answer_language_farsi"> System language is set to Farsi</string>
+    <string name="answer_language_arabic"> System language is set to Arabic</string>
+    <string name="answer_language_russian"> System language is set to Russian</string>
+    <string name="answer_language_ukrainian"> System language is set to Ukrainian</string>
+    <string name="answer_language_portuguese"> System language is set to Portuguese</string>
+    <string name="answer_language_spanish"> System language is set to Spanish</string>
+    <string name="answer_language_kazakh"> System language is set to Kazakh</string>
+
+    <string name="answer_screen_on">Screen is turned on</string>
+
+    <!-- 屏幕亮度设置-->
+    <string name="answer_cmd_screen_brightness_ok">Screen brightness adjusted in place</string>
+    <string name="answer_cmd_screen_brightness_increase">Screen brightness increased</string>
+    <string name="answer_cmd_screen_brightness_reduce">Screen brightness decreased</string>
+    <string name="answer_cmd_screen_brightness_mix">Screen brightness adjusted to the maximum</string>
+    <string name="answer_cmd_screen_brightness_mins">Screen brightness adjusted to the minimum</string>
+    <string name="answer_screen_brightness_mix">Screen brightness being the maximum</string>
+    <string name="answer_screen_brightness_min">Screen brightness being the minimum</string>
+
+    <!--熄火解锁 -->
+    <string name="answer_stalled_unlocking_on">Flameout Unlock ON</string>
+    <string name="answer_stalled_unlocking_off">Flameout Unlock OFF</string>
+
+    <!-- 帮助 -->
+    <string name="answer_help_on">Voice Help page is opened, please view</string>
+    <string name="answer_no_radio">No station is playing now</string>
+
+    <!-- 电子手册-->
+    <string name="answer_manual_app">Manual is opened, please view the introduction of all functions</string>
+    <string name="answer_manual">The introduction page of this function is opened</string>
+    <string name="try_to_say_hello_t1k">Try to say \"Hello, Jetour\"</string>
+    <string name="try_to_say_hello_t1l">Try to say \"Hello, Jetour\"</string>
+    <string name="try_to_say_hello_t1k2">Try to say \"Hi Bahman\"</string>
+    <string name="answer_sunroof_fully_opened">Sunroof fully opened</string>
+    <string name="answer_sunroof_fully_closed">Sunroof fully closed</string>
+    <string name="answer_turn_on_windshield_heating">Turn on windshield heating</string>
+    <string name="answer_turn_off_windshield_heating" >Turn off windshield heating</string>
+    <string name="answer_turn_on_wiper_nozzle_heating">Turn on wiper nozzle heating</string>
+    <string name="answer_turn_off_wiper_nozzle_heating">Turn off wiper nozzle heating</string>
+    <!--女王座椅按摩相关-->
+    <string name="answer_queen_seat_massage_off">Queen seat massage off</string>
+    <string name="answer_queen_seat_massage_on">Queen seat massage on</string>
+    <string name="answer_seat_massage_intensity_switched_to_comfort">Seat massage intensity switched to Comfort</string>
+    <string name="answer_seat_massage_intensity_switched_to_moderate">Seat massage intensity switched to Moderate</string>
+    <string name="answer_seat_massage_intensity_switched_to_strong">Seat massage intensity switched to Strong</string>
+    <string name="answer_seat_massage_mode_switched_to_wave">Seat massage mode switched to Wave</string>
+    <string name="answer_seat_massage_mode_switched_to_cat">Seat massage mode switched to Catwalk</string>
+    <string name="answer_seat_massage_mode_switched_to_cross">Seat massage mode switched to Cross</string>
+    <string name="answer_seat_massage_mode_switched_to_soothing">Seat massage mode switched to Soothing</string>
+    <string name="answer_seat_massage_mode_switched_to_bouncing">Seat massage mode switched to Jump</string>
+    <string name="answer_please_turn_on_the_ambient_lamp_before_adjustment">Please turn on the ambient lamp before adjustment</string>
+    <string name="answer_ambient_lamp_breathing_mode_disabled">Ambient lamp breathing mode disabled</string>
+    <string name="answer_lane_assist_intervention_on">Lane Assist Intervention ON</string>
+    <string name="answer_departure_alert_on">Departure Alert ON</string>
+    <string name="answer_departure_alert_off">Departure Alert OFF</string>
+    <string name="answer_intelligent_avoidance_on">Intelligent Avoidance ON</string>
+    <string name="answer_intelligent_avoidance_off">Intelligent Avoidance OFF</string>
+    <string name="answer_emergency_braking_strobe_on">Emergency Braking Strobe ON</string>
+    <string name="answer_emergency_braking_strobe_off">Emergency Braking Strobe OFF</string>
+    <string name="answer_automatic_lock_is_on_by_default">Automatic Lock is on by default</string>
+    <string name="answer_instrument_theme_switched_to_digital_mode">Instrument theme switched to Digital mode</string>
+    <string name="answer_instrument_theme_switched_to_classic_mode">Instrument theme has been switched to Classic mode</string>
+    <string name="answer_instrument_theme_switched_to_minimal_mode">Instrument theme switched to Minimal mode</string>
+    <string name="answer_instrument_theme_switched_to_digital_mode_t1l">IPC Theme switched to Digital Meter</string>
+    <string name="answer_instrument_theme_switched_to_classic_mode_t1l">IPC Theme switched to Classic Meter</string>
+    <string name="answer_instrument_theme_switched_to_navigation_mode_t1l">IPC Theme switched to Navigation Mode</string>
+    <string name="answer_language_chinese">System language is set to Chinese</string>
+    <string name="answer_language_italian">System language is set to Italian</string>
+    <string name="answer_language_turkish">System language set to Turkish</string>
+    <string name="answer_language_uzbek">System language set to Uzbek</string>
+    <string name="answer_language_french">System language set to French</string>
+    <string name="answer_current_media_has_no_favourite_function">Current media has no favourite function</string>
+    <string name="answer_rearview_mirror_adjustment_page_opened">Rearview mirror adjustment page opened</string>
+    <string name="answer_rearview_mirror_adjustment_page_closed">Rearview mirror adjustment page closed</string>
+    <string name="answer_esp_off_enabled">ESP OFF enabled</string>
+    <string name="answer_esp_off_disabled">ESP OFF disabled</string>
+    <string name="answer_unable_to_operate_esp">ESP can not be turned on/off in Low-speed Cruise Mode</string>
+    <string name="answer_unable_to_operate_hill_descent">Hill Descent Control can not be turned on/off in Low-speed Cruise Mode</string>
+    <string name="answer_unable_to_operate_auto_hold">Auto Hold can not be turned on/off in Low-speed Cruise Mode</string>
+    <string name="answer_hill_descent_control_on">Hill Descent Control on</string>
+    <string name="answer_hill_descent_control_off">Hill Descent Control off</string>
+    <string name="answer_offroad_cooling_on">Off-road Cooling on</string>
+    <string name="answer_offroad_cooling_off">Off-road Cooling off</string>
+    <string name="answer_please_use_this_function_after_the_engine_is_turned_on">Please use this function after the engine is turned on</string>
+    <string name="answer_the_battery_is_low_and_off_road_cooling_is_unavailable">The battery is low and off-road cooling is unavailable</string>
+    <string name="answer_auto_hold_on">Auto Hold on</string>
+    <string name="answer_auto_hold_off">Auto Hold off</string>
+    <string name="hud_on">HUD on</string>
+    <string name="hud_off">HUD off</string>
+    <string name="answer_hud_brightness_is_already_the_maximum">HUD brightness is already the maximum</string>
+    <string name="answer_hud_brightness_increased">HUD brightness increased</string>
+    <string name="answer_hud_brightness_is_already_the_minimum">HUD brightness is already the minimum</string>
+    <string name="answer_hud_brightness_decreased">HUD brightness decreased</string>
+    <string name="answer_hud_brightness_adjusted_to_the_maximum">HUD brightness adjusted to the maximum</string>
+    <string name="answer_hud_brightness_adjusted_to_the_minimum">HUD brightness adjusted to the minimum</string>
+    <string name="answer_hud_brightness_adjusted">HUD brightness adjusted</string>
+    <string name="answer_hud_height_is_already_the_maximum">HUD height increased</string>
+    <string name="answer_hud_height_increased">HUD height is already the maximum</string>
+    <string name="answer_hud_height_decreased">HUD height decreased</string>
+    <string name="answer_hud_height_is_already_the_minimum">HUD height is already the minimum</string>
+    <string name="answer_hud_height_adjusted_to_the_maximum">HUD height adjusted to the maximum</string>
+    <string name="answer_hud_height_adjusted_to_the_minimum">HUD height adjusted to the minimum</string>
+    <string name="answer_hud_height_adjusted">HUD height adjusted</string>
+    <string name="hud_auto_brightness_on">HUD Auto Brightness on</string>
+    <string name="answer_hud_switched_to_normal_mode">HUD switched to Normal mode</string>
+    <string name="answer_hud_switched_to_snow_mode">HUD switched to Snow mode</string>
+    <string name="answer_hud_driver_assistance_on">HUD Driver Assistance on</string>
+    <string name="answer_hud_driver_assistance_off">HUD Driver Assistance off</string>
+    <string name="answer_hud_navigation_info_on">HUD Navigation Info on</string>
+    <string name="answer_hud_navigation_info_off">HUD Navigation Info off</string>
+    <string name="answer_hud_bt_phone_on">HUD Bluetooth Phone on</string>
+    <string name="answer_hud_bt_phone_off">HUD Bluetooth Phone off</string>
+    <string name="answer_bye_bye">Well, call me if you need me</string>
+    <string name="answer_screensaver_effect_switched_to_minimal_clock">Screensaver effect switched to Minimal Clock</string>
+    <string name="answer_screensaver_effect_switched_to_analog_clock">Screensaver effect switched to Analog Clock</string>
+    <string name="answer_screensaver_effect_switched_to_screen_off">Screensaver effect switched to Screen Off</string>
+    <string name="answer_integrated_cruise_assist_true">Integrated Cruise Assist ON</string>
+    <string name="answer_integrated_cruise_assist_false">To enable Integrated Cruise Assist, please confirm again in the pop-up window</string>
+
+    <string name="answer_lane_keep_true">Lane Keeping ON</string>
+    <string name="answer_lane_keep_false">To enable Lane Keeping, please confirm again in the pop-up window</string>
+    <string name="answer_use_avm_when_the_power_supply_is_in_on_position">Use AVM when the power supply is in ON position</string>
+    <string name="answer_use_avm_need_speed15">When the vehicle speed is ≥ 15km/h, it is unable to turn on AVM</string>
+    <string name="answer_voice_is_not_supported_for_this_operation">Voice is not supported for this operation</string>
+    <string name="answer_vehicle_seat_welcome_open">Driver Seat Welcome on</string>
+    <string name="answer_vehicle_seat_welcome_close">Driver Seat Welcome off</string>
+    <string name="answer_vehicle_seat_welcome_front_open">Front Passenger Seat Welcome on</string>
+    <string name="answer_vehicle_seat_welcome_front_close">Front Passenger Seat Welcome off</string>
+    <string name="answer_not_supported">Voice is not supported now; please operate manually</string>
+    <string name="answer_vehicle_power_not_on">Please operate when the power supply is in ON position</string>
+    <string name="answer_vehicle_car_dwd_x">Wading Radar can not be turned off in X Mode</string>
+    <string name="answer_vehicle_car_dwd_on">Wading Radar on</string>
+    <string name="answer_vehicle_car_dwd_off">Wading Radar off</string>
+    <string name="answer_external_discharge_on">External Discharge on</string>
+    <string name="answer_external_discharge_off">External Discharge off</string>
+    <string name="answer_phevcc_unconnect">Please insert charging gun before turning on external discharge</string>
+    <string name="answer_no_connect_phevcc">OK, charge upon charging gun inserted</string>
+    <string name="answer_phev_charging">Charging</string>
+    <string name="answer_phev_start_charging">OK, start charging</string>
+    <string name="answer_vehicle_power_mode_smart">Power Mode switched to Smart Power Saving</string>
+    <string name="answer_vehicle_power_mode_compulsory">Power Mode switched to Compulsory Power Saving</string>
+    <string name="answer_vehicle_current_not_charge">SOC setting is only supported in Compulsory Power Saving mode</string>
+    <string name="answer_vehicle_soc_min">Min. SOC is 20%</string>
+    <string name="answer_vehicle_soc_max">Max. SOC is 70%</string>
+    <string name="answer_vehicle_soc_x">SOC setting only allows 10 X to Max. 70% and Min. 20%</string>
+    <string name="answer_vehicle_soc_ok">SOC already set</string>
+    <string name="answer_vehicle_power_mode_max">Please long press EV mode button ＞3s or tap the button in a row three times to switch to EV MAX mode</string>
+    <string name="answer_vehicle_power_mode_ev">Power Mode switched to EV Mode</string>
+    <string name="answer_vehicle_power_mode_hev">Power Mode switched to Fuel-EV Hybrid Mode</string>
+    <string name="answer_vehicle_power_mode_unavailable">Sorry, power mode switching unavailable now</string>
+    <string name="answer_vehicle_energy_level_high">Energy recovery level set to High</string>
+    <string name="answer_vehicle_energy_level_hid">Energy recovery level set to Medium</string>
+    <string name="answer_vehicle_energy_level_low">Energy recovery level set to Low</string>
+    <string name="answer_phev_charge_open">Compulsory Power-saving Memory on</string>
+    <string name="answer_phev_charge_close">Compulsory Power-saving Memory off</string>
+    <string name="answer_ext_vendorcst_on">Comfortable Parking on</string>
+    <string name="answer_ext_vendorcst_off">Comfortable Parking off</string>
+    <string name="answer_vehicle_property_ipba_on">Please operate when brake boost related driving mode is off</string>
+    <string name="answer_vehicle_assist_model_comfort">Brake Boost Mode switched to Comfort</string>
+    <string name="answer_vehicle_assist_model_sport">Brake Boost Mode switched to Sport</string>
+    <string name="answer_vehicle_eps_driver_mode">Please operate when the power steering related driving mode is off</string>
+    <string name="answer_vehicle_eps_mode_comfort">Brake Boost Mode switched to Comfort</string>
+    <string name="answer_vehicle_eps_mode_Sport">Brake Boost Mode switched to Sport</string>
+    <string name="answer_vehicle_eps_mode_light">Brake Boost Mode switched to Light</string>
+    <string name="answer_vehicle_property_vendor_on">Pedestrian Alert on</string>
+    <string name="answer_vehicle_property_vendor_off">Pedestrian Alert off\n</string>
+    <string name="answer_vehicle_tire_pressure">Tyre pressure can be seen on instrument through buttons on the steering wheel</string>
+    <string name="answer_left_rear_seat_temperature_increased">Left rear seat temperature increased</string>
+    <string name="answer_right_rear_seat_temperature_increased">Right rear seat temperature increased</string>
+    <string name="answer_rear_seat_temperature_increased">Rear seat temperature increased</string>
+    <string name="answer_left_rear_seat_temperature_being_the_maximum">Left rear seat temperature being the maximum</string>
+    <string name="answer_right_rear_seat_temperature_being_the_maximum">Right rear seat temperature being the maximum</string>
+    <string name="answer_rear_seat_temperature_being_the_maximum">Rear seat temperature being the maximum</string>
+    <string name="answer_left_rear_seat_temperature_decreased">Left rear seat temperature decreased</string>
+    <string name="answer_right_rear_seat_temperature_decreased">Right rear seat temperature decreased</string>
+    <string name="answer_rear_seat_temperature_decreased">Rear seat temperature decreased</string>
+    <string name="answer_left_rear_seat_temperature_being_the_minimum">Left rear seat temperature being the minimum</string>
+    <string name="answer_right_rear_seat_temperature_being_the_minimum">Right rear seat temperature being the minimum</string>
+    <string name="answer_rear_seat_temperature_being_the_minimum">Rear seat temperature being the minimum</string>
+    <string name="answer_left_rear_seat_heating_not_on">Left rear seat heating not on</string>
+    <string name="answer_right_rear_seat_heating_not_on">Right rear seat heating not on</string>
+    <string name="answer_rear_seat_heating_not_on">Rear seat heating not on</string>
+    <string name="answer_left_rear_seat_temperature_adjusted_in_place">Left rear seat temperature adjusted in place</string>
+    <string name="answer_right_rear_seat_temperature_adjusted_in_place">Right rear seat temperature adjusted in place</string>
+    <string name="answer_rear_seat_temperature_adjusted_in_place">Rear seat temperature adjusted in place</string>
+    <string name="answer_left_rear_seat_temperature_adjusted_to_the_maximum">Left rear seat temperature adjusted to the maximum</string>
+    <string name="answer_right_rear_seat_temperature_adjusted_to_the_maximum">Right rear seat temperature adjusted to the maximum</string>
+    <string name="answer_rear_seat_temperature_adjusted_to_the_maximum">Rear seat temperature adjusted to the maximum</string>
+    <string name="answer_left_rear_seat_temperature_adjusted_to_the_minimum">Left rear seat temperature adjusted to the minimum</string>
+    <string name="answer_right_rear_seat_temperature_adjusted_to_the_minimum">Right rear seat temperature adjusted to the minimum</string>
+    <string name="answer_rear_seat_temperature_adjusted_to_the_minimum">Rear seat temperature adjusted to the minimum</string>
+
+    <!--仪表亮度调节回复语-T1L-->
+    <string name="answer_instrument_screen_brightness_increased">Meter brightness increased</string>
+    <string name="answer_instrument_screen_brightness_maximum">Meter brightness being the maximum</string>
+    <string name="answer_instrument_screen_brightness_decreased">Meter brightness decreased</string>
+    <string name="answer_instrument_screen_brightness_minimum">Meter brightness being the minimum</string>
+    <string name="answer_instrument_screen_brightness_adjusted_to_the_maximum">Meter brightness adjusted to the maximum</string>
+    <string name="answer_instrument_screen_brightness_adjusted_to_the_minimum">Meter brightness adjusted to the minimum</string>
+    <string name="answer_instrument_screen_brightness_adjusted_in_place">Meter brightness adjusted in place</string>
+
+    <!--车窗锁开启不能操作车窗-->
+    <string name="answer_window_lock_open_does_not_operate">It is detected that the window is locked. Please unlock the window before proceeding</string>
+    <string name="answer_phone_callback_noneincomingrecord_confirm">No call history. I can\'t call back.</string>
+    <string name="answer_phone_redial_noneoutcomingrecord">There is no call history, and I\'m unable to redial.</string>
+    <string name="answer_cmd_screen_brightness_max_also">Screen brightness at maximum</string>
+
+
+    <string name="seat_heating_is_already_on">Seat heating is already on</string>
+    <string name="seat_heating_not_available_in_this_position">Seat heating not available in this position</string>
+    <string name="rear_seat_heating_unavailable">Rear seat heating unavailable, front seat heating activated</string>
+    <string name="rear_seat_heating_unavailable_already_on">Rear seat heating unavailable, front seat heating is now on</string>
+
+    <string name="seat_heating_turned_off">Seat heating turned off</string>
+    <string name="rear_seat_heating_unavailable_close">Rear seat heating unavailable, front seat heating deactivated</string>
+    <string name="rear_seat_heating_unavailable_close_already_on">Rear seat heating unavailable, front seat heating is now off</string>
+
+
+    <string name="seat_heating_set_to_maximum_level">Seat heating set to maximum level</string>
+    <string name="seat_heating_at_minimum_level">Seat heating at minimum level, confirm to turn off?</string>
+    <string name="rear_seat_heating_unavailable_front_seat_heating_set_to_maximum_level">Rear seat heating unavailable, front seat heating set to maximum level</string>
+    <string name="seat_heating_is_already_off">Seat heating is already off</string>
+    <string name="seat_heating_is_at_minimum_level">Seat heating is at minimum level</string>
+    <string name="rear_seat_heating_unavailable_front_seat_heating_set_to_minimum_level">Rear seat heating unavailable, front seat heating set to minimum level</string>
+    <string name="seat_heating_already_at_minimum_level">Seat heating already at minimum level</string>
+    <string name="current_seat_temperature_is_already_at_this_level">Current seat temperature is already at this level</string>
+    <string name="seat_temperature_set_to_maximum">Seat temperature set to maximum</string>
+    <string name="seat_heating_is_already_at_minimum_level">Seat heating is already at minimum level</string>
+    <string name="set_to_minimum_level">Set to minimum level</string>
+
+    <string name="seat_heating_set_to_minimum_level">Seat heating set to minimum level</string>
+    <string name="seat_ventilation_is_already_on">Seat ventilation is already on</string>
+    <string name="seat_ventilation_not_supported_in_this_position">Seat ventilation not supported in this position</string>
+    <string name="rear_seat_ventilation_unavailable_front_seat_ventilation_activated">Rear seat ventilation unavailable, front seat ventilation activated</string>
+    <string name="rear_seat_ventilation_unavailable_front_seat_ventilation_is_now_on">Rear seat ventilation unavailable, front seat ventilation is now on</string>
+
+    <string name="seat_ventilation_is_already_off">Seat ventilation is already off</string>
+    <string name="rear_seat_ventilation_unavailable_front_seat_ventilation_deactivated">Rear seat ventilation unavailable, front seat ventilation deactivated</string>
+    <string name="rear_seat_ventilation_unavailable_front_seat_ventilation_is_now_off">Rear seat ventilation unavailable, front seat ventilation is now off</string>
+
+    <string name="seat_ventilation_not_available_in_this_position">Seat ventilation not available in this position</string>
+    <string name="seat_ventilation_set_to_maximum_level">Seat ventilation set to maximum level</string>
+    <string name="seat_ventilation_set_to_maximum">Seat ventilation set to maximum</string>
+    <string name="rear_seat_ventilation_unavailable_front_seat_ventilation_set_to_maximum">Rear seat ventilation unavailable, front seat ventilation set to maximum</string>
+    <string name="rear_seat_ventilation_unavailable_front_seat_ventilation_already_at_maximum">Rear seat ventilation unavailable, front seat ventilation already at maximum</string>
+    <string name="seat_ventilation_level_is_already_at_maximum">Seat ventilation level is already at maximum</string>
+    <string name="seat_ventilation_is_currently_off">Seat ventilation is currently off</string>
+    <string name="seat_ventilation_set_to_minimum_level">Seat ventilation set to minimum level</string>
+    <string name="rear_seat_ventilation_unavailable">Rear seat ventilation unavailable</string>
+    <string name="seat_ventilation_not_available_in_this_vehicle">Seat ventilation not available in this vehicle</string>
+    <string name="rear_seat_ventilation_unavailable_front_seat_ventilation_already_at_minimum">Rear seat ventilation unavailable, front seat ventilation already at minimum</string>
+    <string name="rear_seat_ventilation_unavailable_front_seat_ventilation_set_to_minimum">Rear seat ventilation unavailable, front seat ventilation set to minimum</string>
+    <string name="seat_ventilation_level_is_already_at_minimum">Seat ventilation level is already at minimum</string>
+    <string name="seat_ventilation_set_to_minimum">Seat ventilation set to minimum</string>
+    <string name="current_ventilation_level_is_already_at_this_level">Current ventilation level is already at this level</string>
+    <string name="seat_ventilation_level_set_to_minimum">Seat ventilation level set to minimum</string>
+    <string name="seat_ventilation_level_set_to_maximum">Seat ventilation level set to maximum</string>
+    <string name="rear_seat_ventilation_unavailable_in_this_model">Rear seat ventilation unavailable in this model</string>
+
+    <string name="rear_seat_massage_unavailable_front_seat_massage_activated">Rear seat massage unavailable, front seat massage activated</string>
+    <string name="rear_seat_massage_unavailable_front_seat_massage_is_now_on">Rear seat massage unavailable, front seat massage is now on</string>
+    <string name="seat_massage_not_supported_in_this_position">Seat massage not supported in this position</string>
+    <string name="seat_massage_is_already_on_in_this_position">Seat massage is already on in this position</string>
+
+    <string name="rear_seat_massage_unavailable_front_seat_massage_deactivated">Rear seat massage unavailable, front seat massage deactivated</string>
+    <string name="rear_seat_massage_unavailable_front_seat_massage_is_now_off">Rear seat massage unavailable, front seat massage is now off</string>
+    <string name="seat_massage_is_off">Seat massage is off</string>
+
+
+    <string name="seat_courtesy_not_supported_in_this_position">Seat courtesy not supported in this position</string>
+    <string name="please_turn_on_seat_massage_first">Please turn on seat massage first</string>
+    <string name="the_seat_is_already_in_this_mode">The seat is already in this mode</string>
+    <string name="this_mode_is_not_currently_available">This mode is not currently available in this vehicle</string>
+
+    <string name="rear_seat_massage_unavailable_in_this_model">Rear seat massage unavailable in this model</string>
+
+    <string name="seat_massage_level_is_already_at_maximum">Seat massage level is already at maximum</string>
+    <string name="seat_massage_level_is_already_at_minimum">Seat massage level is already at minimum</string>
+    <string name="already_at_your_requested_level">Already at your requested level</string>
+    <string name="seat_massage_level_set_to_maximum">Seat massage level set to maximum</string>
+    <string name="seat_massage_level_set_to_minimum">Seat massage level set to minimum</string>
+
+    <string name="front_massage_set_to_maximum_rear_massage_not_available">Front massage set to maximum, rear massage not available</string>
+    <string name="front_massage_already_at_maximum_rear_massage_not_available">Front massage already at maximum, rear massage not available</string>
+    <string name="seat_massage_has_been_set_to_maximum_level">Seat massage has been set to maximum level</string>
+    <string name="seat_massage_intensity_set_to_maximum">Seat massage intensity set to maximum</string>
+    <string name="seat_massage_is_currently_off_in_this_position">Seat massage is currently off in this position</string>
+
+
+    <string name="front_massage_already_at_minimum">Front massage already at minimum</string>
+    <string name="front_massage_set_to_minimum_rear_massage_not_available">Front massage set to minimum, rear massage not available</string>
+    <string name="seat_massage_set_to_minimum_level">Seat massage set to minimum level</string>
+    <string name="rear_seat_massage_unavailable">Rear seat massage unavailable</string>
+    <string name="seat_massage_intensity_set_to_minimum">Seat massage intensity set to minimum</string>
+
+
+    <string name="specified_position_not_available_in_this_vehicle">Specified position not available in this vehicle</string>
+    <string name="screen_not_available">Screen not available in this vehicle</string>
+    <string name="ac_screen_already_on">Rear screen is locked</string>
+
+    <string name="open_refrigerator_mode_4">Refrigerator not available in this vehicle</string>
+    <string name="already_on">Already on</string>
+    <string name="already_in_on">Already in ON state</string>
+    <string name="already_off">Already off</string>
+    <string name="already_in_off">Already in OFF state</string>
+    <string name="already_mode">Already in specified mode</string>
+    <string name="already_delayed_power">Already at specified time</string>
+    <string name="open_refrigerator_first">Please turn on refrigerator power first</string>
+    <string name="refrigerator_not_supported">Voice is not supported for this operation</string>
+    <string name="refrigerator_detection_on">Item detection: On</string>
+    <string name="refrigerator_detection_off">Item detection: Off</string>
+    <string name="refrigerator_delayed_power_on">Delayed power off: On</string>
+    <string name="refrigerator_delayed_power_off">Delayed power off: Off</string>
+    <string name="refrigerator_sterilization_on">Refrigerator sterilization: On</string>
+    <string name="refrigerator_sterilization_off">Refrigerator sterilization: Off</string>
+    <string name="refrigerator_delayed_power_off_tips">Please turn on delayed power off first</string>
+    <string name="driver_operate_manually">Voice control not supported for this operation, please operate manually</string>
+    <string name="ac_screen_already_off">Rear A/C is unlocked</string>
+    <string name="avm_power_on">Use AVM when the power supply is in ON position</string>
+    <string name="avm_speed_15">When the vehicle speed is ≥ 15km/h, it is unable to turn on AVM</string>
+    <string name="nav_volume_unavailable">Navigation volume adjustment unavailable now</string>
+    <string name="v2v_external_discharge">Please insert the discharger before external discharge</string>
+    <string name="v2v_battery_below_30">External discharge unavailable (Battery below 30%)</string>
+    <string name="v2v_already_on">External discharge: On</string>
+    <string name="v2v_already_off">External discharge: Off</string>
+    <string name="charging_immediately_ok">OK, charging started</string>
+    <string name="charging_immediately_already">Charging in progress</string>
+    <string name="charging_immediately_not_already">Please insert the charger before charging</string>
+    <string name="charging_immediately_close_ok">OK, charging completed</string>
+    <string name="charging_immediately_close_not_already">Not currently charging</string>
+    <string name="charging_immediately_on_screen">Please adjust manually on the screen</string>
+    <string name="charging_immediately_charging">Charging</string>
+    <string name="charging_immediately_charging_first">Please schedule charging first</string>
+
+    <string name="discharge_alerady">External discharge: On</string>
+    <string name="discharge_close_alerady">External discharge: Off</string>
+    <string name="discharge_battery_30">External discharge unavailable (Battery below 30%)</string>
+    <string name="discharge_discharger_before">Please insert the discharger before external discharge</string>
+    <string name="wake_up_word_internal">\"Hello,Jetour\"</string>
+</resources>
