@@ -81,7 +81,7 @@ if __name__ == "__main__":
     # xmlLanguageEsList = []
     # contentEs = read_xml_file(file_path_es)
     print("读取excel资源")
-    print(f"python 版本 ：{sys.version} python ， 解释器版本 : {sys.executable}")
+    # print(f"python 版本 ：{sys.version} python ， 解释器版本 : {sys.executable}")
 
     df = PD.read_excel(
         excel_path,
@@ -90,5 +90,23 @@ if __name__ == "__main__":
         usecols="E:J",  # 只读取 A 到 F 列（或列表 ["姓名","年龄"]）
         engine="openpyxl",  # 推荐引擎（读写 .xlsx 最稳定）
         na_values=["-", "N/A", ""],  # 把这些值识别为 NaN（缺失值）
+        nrows=5,  # 只读前 500 行（大数据时节省内存）
+        dtype=str,  # 强制转为字符串 {"手机号": str, "身份证号": str}
     )
-    # print(df.head)
+    columnsList = df.columns.tolist()
+    print(
+        "excel文言表头数据 : \n",
+        f"{json.dumps(columnsList, indent=4, ensure_ascii=False)}",
+    )
+    excelShape = df.shape
+    print("excel行数，列数：\n", excelShape)
+    for index, row in df.iterrows():
+        chineseExcelValue = row["chinese_reply"]
+        enExcelValue = row["en"]
+        arabicExcelValue = row["阿拉伯语"]
+        spanishExcelValue = row["西班牙语"]
+        russianExcelValue = row["俄罗斯语"]
+        portugalBrazilExcelValue = row["葡萄牙语（巴葡）"]
+        # print(
+        #     f"第 {index} 行 chinese_reply = {chineseExcelValue}  \n enExcelValue = {enExcelValue}  \n arabicExcelValue = {arabicExcelValue} \n spanishExcelValue = {spanishExcelValue} \n russianExcelValue = {russianExcelValue}  \n portugalBrazilExcelValue = {portugalBrazilExcelValue}"
+        # )
