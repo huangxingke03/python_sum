@@ -39,6 +39,23 @@ class XmlLanguageBean:
         return asdict(self)
 
 
+@dataclass
+class ExcelLanguageBean:
+    chineseReply: str
+    englishReply: str
+    # 葡萄牙语（巴葡）
+    portugalBrazilReply: str
+    # 阿拉伯语
+    arabicReply: str
+    # 西班牙语
+    spanishReply: str
+    # 俄罗斯语
+    russianReply: str
+
+    def to_dict(self):
+        return asdict(self)
+
+
 if __name__ == "__main__":
     xmlLanguageEnList = []
     contentEn = read_xml_file(file_path_en)
@@ -68,7 +85,10 @@ if __name__ == "__main__":
 
     df = PD.read_excel(
         excel_path,
-        sheet_name="sheet1",
+        sheet_name="Sheet1",
         header=0,
+        usecols="E:J",  # 只读取 A 到 F 列（或列表 ["姓名","年龄"]）
+        engine="openpyxl",  # 推荐引擎（读写 .xlsx 最稳定）
+        na_values=["-", "N/A", ""],  # 把这些值识别为 NaN（缺失值）
     )
-    print(df.head)
+    # print(df.head)
