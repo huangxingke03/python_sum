@@ -9,6 +9,9 @@ import sys
 
 file_path_en = "/home/huangxingke/work/code/workCode/VoiceAssistant/International/src/main/res/values-en/strings.xml"
 file_path_es = "/home/huangxingke/work/code/workCode/VoiceAssistant/International/src/main/res/values-es/strings.xml"
+file_path_pt_rbr = "/home/huangxingke/work/code/workCode/VoiceAssistant/International/src/main/res/values-pt-rBR/strings.xml"
+file_path_ru = "/home/huangxingke/work/code/workCode/VoiceAssistant/International/src/main/res/values-ru/strings.xml"
+file_path_ar = "/home/huangxingke/work/code/workCode/VoiceAssistant/International/src/main/res/values-ar/strings.xml"
 file_excel_path = (
     "/home/huangxingke/project/Python/resource/excel/CL_JT_CS_FY_000-1.xlsx"
 )
@@ -62,7 +65,7 @@ def read_excel_file(excel_path):
             f"{json.dumps(columnsList, indent=4, ensure_ascii=False)}",
         )
         excelShape = df.shape
-        print("excel行数，列数：\n", excelShape)
+        # print("excel行数，列数：\n", excelShape)
         columns_to_check = [
             "chinese_reply",
             "en",
@@ -124,10 +127,16 @@ class ExcelLanguageBean:
 
 
 if __name__ == "__main__":
-    xmlLanguageEnList = read_xml_file(file_path_en)
-    print(f"xml英语文言资源条数 : {len(xmlLanguageEnList)}")
+    xmlEnList = read_xml_file(file_path_en)
+    print(f"xml英语文言资源条数 : {len(xmlEnList)}")
     xmlEsList = read_xml_file(file_path_es)
     print(f"xml西班牙语文言资源条数 : {len(xmlEsList)}")
+    xmlArList = read_xml_file(file_path_ar)
+    print(f"xml阿拉伯语文言资源条数 : {len(xmlArList)}")
+    xmlRuList = read_xml_file(file_path_ru)
+    print(f"xml俄罗斯语文言资源条数 : {len(xmlRuList)}")
+    xmlptRbrList = read_xml_file(file_path_pt_rbr)
+    print(f"xml葡萄牙语（巴葡）文言资源条数 : {len(xmlptRbrList)}")
 
     print("----读取excel资源----")
     excelLanguageList = read_excel_file(file_excel_path)
