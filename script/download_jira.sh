@@ -1,4 +1,9 @@
 #!/bin/bash
+
+if [ -z "${BASH_VERSION:-}" ]; then
+    exec bash "$0" "$@"
+fi
+
 # =============================================
 # JIRA 一键下载工具（全局版）
 # 用法: download_jira <JIRA单号>
@@ -28,6 +33,32 @@ echo "🚀 开始下载 JIRA: $TICKET"
 echo "保存目录: $SAVE_DIR （旧文件已清理）"
 echo "══════════════════════════════════════"
 
+# 判断附件是否需要显示下载进度条
+should_show_progress() {
+    local lower_name="${1,,}"
+    case "$lower_name" in
+        *.zip|*.z[0-9][0-9]|*.tar.gz|*.tgz|*.7z|*.[0-9][0-9][0-9]|*.rar|*.r[0-9][0-9]|*.part[0-9]*.rar|*.log|*.mp4|*.mov|*.mkv|*.txt)
+            return 0
+            ;;
+        *)
+            return 1
+            ;;
+    esac
+}
+
+# 下载附件；压缩包、日志、视频显示 0-100 的进度条，其它文件静默下载
+download_attachment() {
+    local url="$1"
+    local filepath="$2"
+    local filename="$3"
+
+    if should_show_progress "$filename"; then
+        curl -f -b "$COOKIE" -L --progress-bar -o "$filepath" "$url"
+    else
+        curl -f -s -b "$COOKIE" -L -o "$filepath" "$url"
+    fi
+}
+
 # 获取附件列表
 JSON=$(curl -s -b "$COOKIE" \
   -H "Content-Type: application/json" \
@@ -49,10 +80,8 @@ while IFS='|' read -r url filename; do
     if [ -n "$url" ] && [ -n "$filename" ]; then
         filepath="${SAVE_DIR}/${filename}"
         echo "⬇️ 下载: $filename"
-        
-        curl -s -b "$COOKIE" -L -o "$filepath" "$url"
-        
-        if [ -s "$filepath" ]; then
+
+        if download_attachment "$url" "$filepath" "$filename" && [ -s "$filepath" ]; then
             size=$(du -h "$filepath" | cut -f1)
             echo "✅ 下载完成: $filename ($size)"
             case "$filename" in
