@@ -26,7 +26,7 @@ rm -rf "$SAVE_DIR"          # 删除旧文件夹及所有内容
 mkdir -p "$SAVE_DIR"
 
 # ==================== Cookie 配置（请保持最新） ====================
-COOKIE="JSESSIONID=1FFFB73DCC55B07704C6BB6BC53D1C2E; atlassian.xsrf.token=BWB8-5DWA-IKRE-Q10M_5a0e3f4fbd671d79763cdf79f35bcd9c3f90c462_lin; jira.editor.user.mode=source"
+COOKIE="JSESSIONID=054DB2963DBD88FA66A1B0B44CB2B6E9; atlassian.xsrf.token=BWB8-5DWA-IKRE-Q10M_43740c357dd435f96939c3682ddfd292b836eb88_lin; jira.editor.user.mode=wysiwyg"
 
 echo "══════════════════════════════════════"
 echo "🚀 开始下载 JIRA: $TICKET"
@@ -138,7 +138,7 @@ download_with_progress() {
             line+=" ${progress_bar} (${percent}%)"
         fi
 
-        printf '[2K%s' "$line"
+        printf '\r\033[2K%s' "$line"
         tick=$(( tick + 1 ))
         sleep 1
     done
@@ -150,17 +150,20 @@ download_with_progress() {
     line="   已下载包大小: $(format_size "$current_size")"
 
     if [[ "$remote_size" =~ ^[0-9]+$ ]] && [ "$remote_size" -gt 0 ]; then
-        if [ "$display_size" -gt "$remote_size" ]; then
-            display_size="$remote_size"
-        fi
         if [ "$status" -eq 0 ]; then
+            current_size="$remote_size"
+            display_size="$remote_size"
             percent=100
         else
+            if [ "$display_size" -gt "$remote_size" ]; then
+                display_size="$remote_size"
+            fi
             percent=$(( display_size * 100 / remote_size ))
             if [ "$percent" -gt 100 ]; then
                 percent=100
             fi
         fi
+        line="   已下载包大小: $(format_size "$current_size")"
         progress_bar=$(build_progress_bar "$percent")
         line+=" / 总包大小: $(format_size "$remote_size") ${progress_bar} (${percent}%)"
     else
@@ -173,8 +176,7 @@ download_with_progress() {
         line+=" ${progress_bar} (${percent}%)"
     fi
 
-    printf '[2K%s
-' "$line"
+    printf '\r\033[2K%s\n' "$line"
     return "$status"
 }
 
