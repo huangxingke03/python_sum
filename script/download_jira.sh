@@ -26,7 +26,7 @@ rm -rf "$SAVE_DIR"          # 删除旧文件夹及所有内容
 mkdir -p "$SAVE_DIR"
 
 # ==================== Cookie 配置（请保持最新） ====================
-COOKIE="JSESSIONID=054DB2963DBD88FA66A1B0B44CB2B6E9; atlassian.xsrf.token=BWB8-5DWA-IKRE-Q10M_43740c357dd435f96939c3682ddfd292b836eb88_lin; jira.editor.user.mode=wysiwyg"
+COOKIE="JSESSIONID=B3B2D731D381735680D30324D164275D; atlassian.xsrf.token=BWB8-5DWA-IKRE-Q10M_a8f27312d5634d470891adc1184e3adc54f9d6a3_lin; jira.editor.user.mode=wysiwyg"
 
 echo "══════════════════════════════════════"
 echo "🚀 开始下载 JIRA: $TICKET"
