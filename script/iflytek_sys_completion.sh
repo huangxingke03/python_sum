@@ -1,12 +1,11 @@
 #!/bin/bash
 
-_scrcpy_device_completion() {
+_iflytek_sys_device_completion() {
     local cur prev line serial state model device_name transport_id
     local -a prefix_suggestions fuzzy_suggestions
     cur="${COMP_WORDS[COMP_CWORD]}"
     prev="${COMP_WORDS[COMP_CWORD-1]}"
 
-    # Disable filename fallback so `-s` only suggests devices.
     compopt +o default +o bashdefault 2>/dev/null
 
     if [ "${prev}" = "-s" ]; then
@@ -45,26 +44,55 @@ _scrcpy_device_completion() {
     COMPREPLY=( $(compgen -W "-s -h" -- "${cur}") )
 }
 
-scrcpy_completion_repair() {
+iflytek_sys_completion_repair() {
     local command_name
     local -a commands=(
-        scrcpy
-        /usr/local/bin/scrcpy
-        scrn
-        scrv
-        scra
-        /home/huangxingke/.local/bin/scrn
-        /home/huangxingke/.local/bin/scrv
-        /home/huangxingke/.local/bin/scra
+        ./update_d01_Int_sys.sh
+        ./update_d01_sys.sh
+        ./update_d01p_int_sys.sh
+        ./update_kp31_int_sys.sh
+        ./update_kp31_sys.sh
+        update_d01_Int_sys.sh
+        update_d01_sys.sh
+        update_d01p_int_sys.sh
+        update_kp31_int_sys.sh
+        update_kp31_sys.sh
+        /usr/local/bin/updateD01IntSys
+        /usr/local/bin/updateD01Sys
+        /usr/local/bin/updateD01pIntSys
+        /usr/local/bin/updateKp31IntSys
+        /usr/local/bin/updateKp31Sys
+        updateD01IntSys
+        updateD01Sys
+        updateD01pIntSys
+        updateKp31IntSys
+        updateKp31Sys
+    )
+
+    local -a stale_commands=(
+        update_d01_Int_sys
+        update_d01_sys
+        update_d01p_int_sys
+        update_kp31_int_sys
+        update_kp31_sys
+        /usr/local/bin/update_d01_Int_sys
+        /usr/local/bin/update_d01_sys
+        /usr/local/bin/update_d01p_int_sys
+        /usr/local/bin/update_kp31_int_sys
+        /usr/local/bin/update_kp31_sys
     )
 
     for command_name in "${commands[@]}"; do
         complete -r "${command_name}" 2>/dev/null || true
     done
 
+    for command_name in "${stale_commands[@]}"; do
+        complete -r "${command_name}" 2>/dev/null || true
+    done
+
     for command_name in "${commands[@]}"; do
-        complete -o nospace -F _scrcpy_device_completion "${command_name}"
+        complete -o nospace -F _iflytek_sys_device_completion "${command_name}"
     done
 }
 
-scrcpy_completion_repair
+iflytek_sys_completion_repair
