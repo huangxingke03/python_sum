@@ -50,9 +50,21 @@ random_log_completion_repair() {
         ./start_random_log.sh
         ./stop_random_log.sh
         /usr/local/bin/startRandomLog
+        /usr/local/bin/startrandomLog
+        /usr/local/bin/startRandomlog
+        /usr/local/bin/startrandomlog
         /usr/local/bin/stopRandomLog
+        /usr/local/bin/stoprandomLog
+        /usr/local/bin/stopRandomlog
+        /usr/local/bin/stoprandomlog
         startRandomLog
+        startrandomLog
+        startRandomlog
+        startrandomlog
         stopRandomLog
+        stoprandomLog
+        stopRandomlog
+        stoprandomlog
         ./StartRandomLog.sh
         ./StopRandomLog.sh
         StartRandomLog.sh

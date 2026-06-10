@@ -59,13 +59,37 @@ _voice_completion_reset() {
         voice_setting_d01.sh
         voice_setting_kp31.sh
         /usr/local/bin/voiceAssistantD01
+        /usr/local/bin/voiceassistantD01
+        /usr/local/bin/voiceAssistantd01
+        /usr/local/bin/voiceassistantd01
         /usr/local/bin/voiceAssistantKp31
+        /usr/local/bin/voiceassistantKp31
+        /usr/local/bin/voiceAssistantkp31
+        /usr/local/bin/voiceassistantkp31
         /usr/local/bin/voiceSettingD01
+        /usr/local/bin/voicesettingD01
+        /usr/local/bin/voiceSettingd01
+        /usr/local/bin/voicesettingd01
         /usr/local/bin/voiceSettingKp31
+        /usr/local/bin/voicesettingKp31
+        /usr/local/bin/voiceSettingkp31
+        /usr/local/bin/voicesettingkp31
         voiceAssistantD01
+        voiceassistantD01
+        voiceAssistantd01
+        voiceassistantd01
         voiceAssistantKp31
+        voiceassistantKp31
+        voiceAssistantkp31
+        voiceassistantkp31
         voiceSettingD01
+        voicesettingD01
+        voiceSettingd01
+        voicesettingd01
         voiceSettingKp31
+        voicesettingKp31
+        voiceSettingkp31
+        voicesettingkp31
     )
 
     for command_name in "${all_commands[@]}"; do
@@ -85,13 +109,37 @@ _voice_completion_bind() {
         voice_setting_d01.sh
         voice_setting_kp31.sh
         /usr/local/bin/voiceAssistantD01
+        /usr/local/bin/voiceassistantD01
+        /usr/local/bin/voiceAssistantd01
+        /usr/local/bin/voiceassistantd01
         /usr/local/bin/voiceAssistantKp31
+        /usr/local/bin/voiceassistantKp31
+        /usr/local/bin/voiceAssistantkp31
+        /usr/local/bin/voiceassistantkp31
         /usr/local/bin/voiceSettingD01
+        /usr/local/bin/voicesettingD01
+        /usr/local/bin/voiceSettingd01
+        /usr/local/bin/voicesettingd01
         /usr/local/bin/voiceSettingKp31
+        /usr/local/bin/voicesettingKp31
+        /usr/local/bin/voiceSettingkp31
+        /usr/local/bin/voicesettingkp31
         voiceAssistantD01
+        voiceassistantD01
+        voiceAssistantd01
+        voiceassistantd01
         voiceAssistantKp31
+        voiceassistantKp31
+        voiceAssistantkp31
+        voiceassistantkp31
         voiceSettingD01
+        voicesettingD01
+        voiceSettingd01
+        voicesettingd01
         voiceSettingKp31
+        voicesettingKp31
+        voiceSettingkp31
+        voicesettingkp31
     )
 
     for command_name in "${supported_commands[@]}"; do

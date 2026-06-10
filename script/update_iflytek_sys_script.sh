@@ -19,6 +19,21 @@ OLD_COMMANDS=(
   /usr/local/bin/update_kp31_int_sys.sh
   /usr/local/bin/update_kp31_sys
   /usr/local/bin/update_kp31_sys.sh
+  /usr/local/bin/updated01IntSys
+  /usr/local/bin/updateD01intSys
+  /usr/local/bin/updated01intSys
+  /usr/local/bin/updated01Sys
+  /usr/local/bin/updateD01sys
+  /usr/local/bin/updated01sys
+  /usr/local/bin/updated01pIntSys
+  /usr/local/bin/updateD01pintSys
+  /usr/local/bin/updated01pintSys
+  /usr/local/bin/updatekp31IntSys
+  /usr/local/bin/updateKp31intSys
+  /usr/local/bin/updatekp31intSys
+  /usr/local/bin/updatekp31Sys
+  /usr/local/bin/updateKp31sys
+  /usr/local/bin/updatekp31sys
 )
 
 install_command() {
@@ -58,15 +73,33 @@ sudo rm -f "${OLD_COMMANDS[@]}"
 echo "更新--- 已移除老快捷方式"
 
 install_command update_d01_Int_sys.sh updateD01IntSys
+sudo ln -sf /usr/local/bin/updateD01IntSys /usr/local/bin/updated01IntSys
+sudo ln -sf /usr/local/bin/updateD01IntSys /usr/local/bin/updateD01intSys
+sudo ln -sf /usr/local/bin/updateD01IntSys /usr/local/bin/updated01intSys
+
 install_command update_d01_sys.sh updateD01Sys
+sudo ln -sf /usr/local/bin/updateD01Sys /usr/local/bin/updated01Sys
+sudo ln -sf /usr/local/bin/updateD01Sys /usr/local/bin/updateD01sys
+sudo ln -sf /usr/local/bin/updateD01Sys /usr/local/bin/updated01sys
+
 install_command update_d01p_int_sys.sh updateD01pIntSys
+sudo ln -sf /usr/local/bin/updateD01pIntSys /usr/local/bin/updated01pIntSys
+sudo ln -sf /usr/local/bin/updateD01pIntSys /usr/local/bin/updateD01pintSys
+sudo ln -sf /usr/local/bin/updateD01pIntSys /usr/local/bin/updated01pintSys
+
 install_command update_kp31_int_sys.sh updateKp31IntSys
+sudo ln -sf /usr/local/bin/updateKp31IntSys /usr/local/bin/updatekp31IntSys
+sudo ln -sf /usr/local/bin/updateKp31IntSys /usr/local/bin/updateKp31intSys
+sudo ln -sf /usr/local/bin/updateKp31IntSys /usr/local/bin/updatekp31intSys
+
 install_command update_kp31_sys.sh updateKp31Sys
+sudo ln -sf /usr/local/bin/updateKp31Sys /usr/local/bin/updatekp31Sys
+sudo ln -sf /usr/local/bin/updateKp31Sys /usr/local/bin/updateKp31sys
+sudo ln -sf /usr/local/bin/updateKp31Sys /usr/local/bin/updatekp31sys
 
 ensure_case_insensitive_completion
 ensure_completion_source
 
-# 让当前 shell 也立即注册一次补全；新终端会走 ~/.bashrc 自动加载。
 # shellcheck disable=SC1090
 source "${COMPLETION_SCRIPT}"
 echo "更新--- 已注册 -s 设备补全"
