@@ -1,33 +1,120 @@
 #!/bin/bash
 
+set -e
+
 SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
 LOG_DIR="/home/huangxingke/下载"
 COMMAND_DIR="/home/huangxingke/project/Python/script"
 MAIN_SCRIPT="${COMMAND_DIR}/start_random_log.sh"
-PID_FILE="${LOG_DIR}/logcat.pid"
-STOP_SCRIPT="${COMMAND_DIR}/StopRandomLog.sh"
-START_SCRIPT="${COMMAND_DIR}/StartRandomLog.sh"
-TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
-ACTION="$1"
+START_WRAPPER="${COMMAND_DIR}/StartRandomLog.sh"
+STOP_WRAPPER="${COMMAND_DIR}/StopRandomLog.sh"
+DEFAULT_ACTION="start"
+ACTION="${DEFAULT_ACTION}"
 CUSTOM_LOG_NAME=""
+DEVICE_SERIAL=""
+TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
 
 if [ ! -f "${MAIN_SCRIPT}" ]; then
     MAIN_SCRIPT="${SCRIPT_DIR}/start_random_log.sh"
 fi
 
-if [ -z "${ACTION}" ]; then
-    ACTION="start"
-elif [ "${ACTION}" = "start" ]; then
-    CUSTOM_LOG_NAME="$2"
-elif [ "${ACTION}" != "stop" ]; then
-    CUSTOM_LOG_NAME="${ACTION}"
-    ACTION="start"
+usage() {
+    echo "用法: $0 [-s device_serial] [start [自定义文件名] | stop | 自定义文件名]"
+    echo "  -s device_serial  指定 adb 设备序列号"
+}
+
+sanitize_device_tag() {
+    local serial="$1"
+    if [ -z "${serial}" ]; then
+        echo "default"
+    else
+        echo "${serial}" | tr '/: ' '___'
+    fi
+}
+
+ensure_single_target_device() {
+    local device_count
+
+    device_count=$(adb devices | sed '1d' | awk '$2 == "device" {count++} END {print count + 0}')
+    if [ "${device_count}" -gt 1 ] && [ -z "${DEVICE_SERIAL}" ]; then
+        echo "错误: 检测到多个在线设备，请使用 -s 指定设备序列号"
+        exit 1
+    fi
+}
+
+ensure_device_ready() {
+    local device_status
+
+    adb start-server >/dev/null
+    if [ -z "${DEVICE_SERIAL}" ]; then
+        ensure_single_target_device
+        return 0
+    fi
+
+    device_status=$(adb devices | sed '1d' | awk -v serial="${DEVICE_SERIAL}" '$1 == serial {print $2}')
+    if [ -z "${device_status}" ]; then
+        echo "错误: adb devices 中未找到设备序列号 ${DEVICE_SERIAL}"
+        exit 1
+    fi
+
+    if [ "${device_status}" != "device" ]; then
+        echo "错误: 设备 ${DEVICE_SERIAL} 当前状态为 ${device_status}，必须为 device 才能继续"
+        exit 1
+    fi
+}
+
+while getopts ":s:h" opt; do
+    case "${opt}" in
+        s)
+            DEVICE_SERIAL="${OPTARG}"
+            ;;
+        h)
+            usage
+            exit 0
+            ;;
+        :)
+            echo "错误: -${OPTARG} 需要传入设备序列号"
+            usage
+            exit 1
+            ;;
+        \?)
+            echo "错误: 不支持的参数 -${OPTARG}"
+            usage
+            exit 1
+            ;;
+    esac
+done
+shift $((OPTIND - 1))
+
+if [ $# -gt 0 ]; then
+    ACTION="$1"
+    shift
 fi
+
+if [ -z "${ACTION}" ]; then
+    ACTION="${DEFAULT_ACTION}"
+elif [ "${ACTION}" = "start" ]; then
+    if [ $# -gt 0 ]; then
+        CUSTOM_LOG_NAME="$1"
+    fi
+elif [ "${ACTION}" = "stop" ]; then
+    :
+else
+    CUSTOM_LOG_NAME="${ACTION}"
+    ACTION="${DEFAULT_ACTION}"
+fi
+
+DEVICE_TAG=$(sanitize_device_tag "${DEVICE_SERIAL}")
+PID_FILE="${LOG_DIR}/logcat_${DEVICE_TAG}.pid"
 
 if [ -n "${CUSTOM_LOG_NAME}" ]; then
     LOG_FILE="${LOG_DIR}/${CUSTOM_LOG_NAME}"
 else
-    LOG_FILE="${LOG_DIR}/log_${TIMESTAMP}.log"
+    if [ -n "${DEVICE_SERIAL}" ]; then
+        LOG_FILE="${LOG_DIR}/log_${DEVICE_TAG}_${TIMESTAMP}.log"
+    else
+        LOG_FILE="${LOG_DIR}/log_${TIMESTAMP}.log"
+    fi
 fi
 
 is_logcat_capture_pid() {
@@ -39,6 +126,14 @@ is_logcat_capture_pid() {
 
     cmdline=$(tr '\0' ' ' < "/proc/${pid}/cmdline" 2>/dev/null)
     [[ "${cmdline}" == *"adb"* && "${cmdline}" == *"logcat"* ]]
+}
+
+adb_cmd() {
+    if [ -n "${DEVICE_SERIAL}" ]; then
+        adb -s "${DEVICE_SERIAL}" "$@"
+    else
+        adb "$@"
+    fi
 }
 
 stop_capture_by_pid() {
@@ -96,22 +191,27 @@ stop_capture() {
 }
 
 ensure_command_scripts() {
-    cat > "${STOP_SCRIPT}" <<EOF2
+    cat > "${STOP_WRAPPER}" <<EOF2
 #!/bin/bash
-"${MAIN_SCRIPT}" stop
+"${MAIN_SCRIPT}" "\$@" stop
 EOF2
 
-    cat > "${START_SCRIPT}" <<EOF3
+    cat > "${START_WRAPPER}" <<EOF3
 #!/bin/bash
 "${MAIN_SCRIPT}" "\$@"
 EOF3
 
-    chmod +x "${STOP_SCRIPT}" "${START_SCRIPT}"
+    chmod +x "${STOP_WRAPPER}" "${START_WRAPPER}"
 }
 
 start_capture() {
+    ensure_device_ready
+
     echo "========================================="
     echo "清除日志缓存，开始抓日志..."
+    if [ -n "${DEVICE_SERIAL}" ]; then
+        echo "目标设备 → ${DEVICE_SERIAL}"
+    fi
     echo "日志文件 → ${LOG_FILE}"
     echo "========================================="
 
@@ -120,17 +220,17 @@ start_capture() {
     fi
     stop_capture
 
-    adb logcat -c
+    adb_cmd logcat -c
     echo "==================== 开始抓取 $(date +"%Y-%m-%d %H:%M:%S") ====================" > "${LOG_FILE}"
 
-    adb logcat -v time >> "${LOG_FILE}" 2>&1 &
+    adb_cmd logcat -v time >> "${LOG_FILE}" 2>&1 &
     LOG_PID=$!
     echo "${LOG_PID}" > "${PID_FILE}"
 
     echo "✅ 日志抓取已启动！(PID: ${LOG_PID})"
     ensure_command_scripts
-    echo "启动命令： ./StartRandomLog.sh [自定义文件名]"
-    echo "停止命令： ./StopRandomLog.sh"
+    echo "启动命令： ./StartRandomLog.sh [-s device_serial] [自定义文件名]"
+    echo "停止命令： ./StopRandomLog.sh [-s device_serial]"
     echo ""
 }
 
@@ -142,7 +242,7 @@ case "${ACTION}" in
         stop_capture
         ;;
     *)
-        echo "用法: $0 [start [自定义文件名] | stop | 自定义文件名]"
+        usage
         exit 1
         ;;
 esac

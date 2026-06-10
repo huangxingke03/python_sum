@@ -8,4 +8,4 @@ if [ ! -f "${MAIN_SCRIPT}" ]; then
     MAIN_SCRIPT="${SCRIPT_DIR}/start_random_log.sh"
 fi
 
-"${MAIN_SCRIPT}" stop
+"${MAIN_SCRIPT}" "$@" stop

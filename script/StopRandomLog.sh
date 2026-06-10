@@ -1,2 +1,2 @@
 #!/bin/bash
-"/home/huangxingke/project/Python/script/start_random_log.sh" stop
+"/home/huangxingke/project/Python/script/start_random_log.sh" "$@" stop
