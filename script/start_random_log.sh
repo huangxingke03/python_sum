@@ -105,7 +105,7 @@ else
 fi
 
 DEVICE_TAG=$(sanitize_device_tag "${DEVICE_SERIAL}")
-PID_FILE="${LOG_DIR}/logcat_${DEVICE_TAG}.pid"
+LEGACY_PID_FILE="${LOG_DIR}/logcat_${DEVICE_TAG}.pid"
 
 if [ -n "${CUSTOM_LOG_NAME}" ]; then
     LOG_FILE="${LOG_DIR}/${CUSTOM_LOG_NAME}"
@@ -126,6 +126,37 @@ is_logcat_capture_pid() {
 
     cmdline=$(tr '\0' ' ' < "/proc/${pid}/cmdline" 2>/dev/null)
     [[ "${cmdline}" == *"adb"* && "${cmdline}" == *"logcat"* ]]
+}
+
+is_matching_logcat_capture_cmdline() {
+    local cmdline=" $1 "
+
+    [[ "${cmdline}" == *" adb "* && "${cmdline}" == *" logcat "* ]] || return 1
+    [[ "${cmdline}" == *" -v "* && "${cmdline}" == *" time "* ]] || return 1
+
+    if [ -n "${DEVICE_SERIAL}" ]; then
+        [[ "${cmdline}" == *" -s ${DEVICE_SERIAL} "* ]]
+    else
+        [[ "${cmdline}" != *" -s "* ]]
+    fi
+}
+
+find_logcat_capture_pids() {
+    local proc_path
+    local pid
+    local cmdline
+
+    for proc_path in /proc/[0-9]*; do
+        [ -r "${proc_path}/cmdline" ] || continue
+
+        pid=${proc_path#/proc/}
+        cmdline=$(tr '\0' ' ' < "${proc_path}/cmdline" 2>/dev/null)
+        [ -n "${cmdline}" ] || continue
+
+        if is_matching_logcat_capture_cmdline "${cmdline}"; then
+            echo "${pid}"
+        fi
+    done
 }
 
 adb_cmd() {
@@ -161,32 +192,28 @@ stop_capture_by_pid() {
         return 1
     fi
 
-    rm -f "${PID_FILE}"
     echo "✅ 日志抓取已停止"
     return 0
 }
 
 stop_capture() {
-    local pid=""
+    local stopped_any=0
+    local pid
 
-    if [ ! -f "${PID_FILE}" ]; then
+    while IFS= read -r pid; do
+        [ -n "${pid}" ] || continue
+
+        stop_capture_by_pid "${pid}" || return 1
+        stopped_any=1
+    done < <(find_logcat_capture_pids)
+
+    if [ -f "${LEGACY_PID_FILE}" ]; then
+        rm -f "${LEGACY_PID_FILE}"
+    fi
+
+    if [ "${stopped_any}" -eq 0 ]; then
         echo "当前没有运行中的日志抓取进程"
-        return 0
     fi
-
-    pid=$(cat "${PID_FILE}" 2>/dev/null)
-    if is_logcat_capture_pid "${pid}"; then
-        stop_capture_by_pid "${pid}"
-        return $?
-    fi
-
-    if [ -n "${pid}" ]; then
-        echo "PID 文件中的进程(PID: ${pid})不是 adb logcat，未执行停止，仅清理残留文件"
-    else
-        echo "PID 文件为空，清理残留文件"
-    fi
-
-    rm -f "${PID_FILE}"
     return 0
 }
 
@@ -215,8 +242,8 @@ start_capture() {
     echo "日志文件 → ${LOG_FILE}"
     echo "========================================="
 
-    if [ -f "${PID_FILE}" ]; then
-        echo "检测到已有抓日志记录，先执行停止检查..."
+    if [ -f "${LEGACY_PID_FILE}" ]; then
+        echo "检测到旧版 PID 文件残留，先执行停止检查..."
     fi
     stop_capture
 
@@ -225,7 +252,6 @@ start_capture() {
 
     adb_cmd logcat -v time >> "${LOG_FILE}" 2>&1 &
     LOG_PID=$!
-    echo "${LOG_PID}" > "${PID_FILE}"
 
     echo "✅ 日志抓取已启动！(PID: ${LOG_PID})"
     ensure_command_scripts
