@@ -74,6 +74,23 @@ _voice_completion_reset() {
         /usr/local/bin/voicesettingKp31
         /usr/local/bin/voiceSettingkp31
         /usr/local/bin/voicesettingkp31
+        /usr/local/bin/stwc
+        /usr/local/bin/stwc.sh
+        /usr/local/bin/Stwc
+        /usr/local/bin/StwC
+        /usr/local/bin/StWc
+        /usr/local/bin/StWC
+        /usr/local/bin/STwc
+        /usr/local/bin/STwC
+        /usr/local/bin/STWc
+        /usr/local/bin/STWC
+        /usr/local/bin/sTwc
+        /usr/local/bin/sTwC
+        /usr/local/bin/sTWc
+        /usr/local/bin/sTWC
+        /usr/local/bin/stWc
+        /usr/local/bin/stWC
+        /usr/local/bin/stwC
         voiceAssistantD01
         voiceassistantD01
         voiceAssistantd01
@@ -90,6 +107,23 @@ _voice_completion_reset() {
         voicesettingKp31
         voiceSettingkp31
         voicesettingkp31
+        stwc
+        stwc.sh
+        Stwc
+        StwC
+        StWc
+        StWC
+        STwc
+        STwC
+        STWc
+        STWC
+        sTwc
+        sTwC
+        sTWc
+        sTWC
+        stWc
+        stWC
+        stwC
     )
 
     for command_name in "${all_commands[@]}"; do
@@ -124,6 +158,23 @@ _voice_completion_bind() {
         /usr/local/bin/voicesettingKp31
         /usr/local/bin/voiceSettingkp31
         /usr/local/bin/voicesettingkp31
+        /usr/local/bin/stwc
+        /usr/local/bin/stwc.sh
+        /usr/local/bin/Stwc
+        /usr/local/bin/StwC
+        /usr/local/bin/StWc
+        /usr/local/bin/StWC
+        /usr/local/bin/STwc
+        /usr/local/bin/STwC
+        /usr/local/bin/STWc
+        /usr/local/bin/STWC
+        /usr/local/bin/sTwc
+        /usr/local/bin/sTwC
+        /usr/local/bin/sTWc
+        /usr/local/bin/sTWC
+        /usr/local/bin/stWc
+        /usr/local/bin/stWC
+        /usr/local/bin/stwC
         voiceAssistantD01
         voiceassistantD01
         voiceAssistantd01
@@ -140,6 +191,23 @@ _voice_completion_bind() {
         voicesettingKp31
         voiceSettingkp31
         voicesettingkp31
+        stwc
+        stwc.sh
+        Stwc
+        StwC
+        StWc
+        StWC
+        STwc
+        STwC
+        STWc
+        STWC
+        sTwc
+        sTwC
+        sTWc
+        sTWC
+        stWc
+        stWC
+        stwC
     )
 
     for command_name in "${supported_commands[@]}"; do

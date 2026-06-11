@@ -47,6 +47,27 @@ ensure_device_ready() {
     fi
 }
 
+get_device_display_name() {
+    local serial="$1"
+    local device_line
+    local model_name
+    local device_name
+
+    device_line=$(adb devices -l | awk -v serial="$serial" '$1 == serial {print; exit}')
+    model_name=$(printf '%s\n' "$device_line" | sed -n 's/.*model:\([^[:space:]]*\).*/\1/p')
+    device_name=$(printf '%s\n' "$device_line" | sed -n 's/.*device:\([^[:space:]]*\).*/\1/p')
+
+    if [ -n "$model_name" ] && [ -n "$device_name" ]; then
+        echo "$model_name ($device_name)"
+    elif [ -n "$model_name" ]; then
+        echo "$model_name"
+    elif [ -n "$device_name" ]; then
+        echo "$device_name"
+    else
+        echo "未知设备名"
+    fi
+}
+
 prepare_gradle_build() {
     local project_dir="$1"
 
