@@ -2,24 +2,33 @@
 
 set -e
 
-sudo rm -f \
-  /usr/local/bin/update_download_jira \
-  /usr/local/bin/download_jira \
-  /usr/local/bin/updatedownloadJira \
-  /usr/local/bin/updateDownloadjira \
-  /usr/local/bin/updatedownloadjira \
-  /usr/local/bin/downloadjira
+TARGET_DIR="${HOME}/.local/bin"
+SOURCE_DIR="/home/huangxingke/project/Python/script"
 
-sudo cp /home/huangxingke/project/Python/script/update_download_jira.sh /usr/local/bin/updateDownloadJira
-echo "更新--- /usr/local/bin/updateDownloadJira ----"
-sudo chmod +x /usr/local/bin/updateDownloadJira
-sudo ln -sf /usr/local/bin/updateDownloadJira /usr/local/bin/updatedownloadJira
-sudo ln -sf /usr/local/bin/updateDownloadJira /usr/local/bin/updateDownloadjira
-sudo ln -sf /usr/local/bin/updateDownloadJira /usr/local/bin/updatedownloadjira
-echo "更新--- /usr/local/bin/updateDownloadJira 成功----"
+mkdir -p "${TARGET_DIR}"
 
-sudo cp /home/huangxingke/project/Python/script/download_jira.sh /usr/local/bin/downloadJira
-echo "更新--- /usr/local/bin/downloadJira ----"
-sudo chmod +x /usr/local/bin/downloadJira
-sudo ln -sf /usr/local/bin/downloadJira /usr/local/bin/downloadjira
-echo "更新--- /usr/local/bin/downloadJira 成功----"
+rm -f \
+  "${TARGET_DIR}/update_download_jira" \
+  "${TARGET_DIR}/download_jira" \
+  "${TARGET_DIR}/updateDownloadJira" \
+  "${TARGET_DIR}/updatedownloadJira" \
+  "${TARGET_DIR}/updateDownloadjira" \
+  "${TARGET_DIR}/updatedownloadjira" \
+  "${TARGET_DIR}/downloadJira" \
+  "${TARGET_DIR}/downloadjira"
+
+cp "${SOURCE_DIR}/update_download_jira.sh" "${TARGET_DIR}/updateDownloadJira"
+chmod +x "${TARGET_DIR}/updateDownloadJira"
+ln -sf "${TARGET_DIR}/updateDownloadJira" "${TARGET_DIR}/updatedownloadJira"
+ln -sf "${TARGET_DIR}/updateDownloadJira" "${TARGET_DIR}/updateDownloadjira"
+ln -sf "${TARGET_DIR}/updateDownloadJira" "${TARGET_DIR}/updatedownloadjira"
+ln -sf "${TARGET_DIR}/updateDownloadJira" "${TARGET_DIR}/update_download_jira"
+echo "更新--- ${TARGET_DIR}/updateDownloadJira 成功----"
+
+cp "${SOURCE_DIR}/download_jira.sh" "${TARGET_DIR}/downloadJira"
+chmod +x "${TARGET_DIR}/downloadJira"
+ln -sf "${TARGET_DIR}/downloadJira" "${TARGET_DIR}/downloadjira"
+ln -sf "${TARGET_DIR}/downloadJira" "${TARGET_DIR}/download_jira"
+echo "更新--- ${TARGET_DIR}/downloadJira 成功----"
+
+echo "提示: 当前 shell 如果还命中旧的 /usr/local/bin，可执行 hash -r 或重新开一个终端。"

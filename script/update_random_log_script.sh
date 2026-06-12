@@ -2,29 +2,38 @@
 
 set -e
 
-sudo cp /home/huangxingke/project/Python/script/update_random_log_script.sh /usr/local/bin/update_random_log_script
-sudo chmod +x /usr/local/bin/update_random_log_script
+TARGET_DIR="${HOME}/.local/bin"
+SCRIPT_DIR="/home/huangxingke/project/Python/script"
 
-sudo rm -f \
-  /usr/local/bin/start_random_log \
-  /usr/local/bin/stop_random_log \
-  /usr/local/bin/startrandomLog \
-  /usr/local/bin/startRandomlog \
-  /usr/local/bin/startrandomlog \
-  /usr/local/bin/stoprandomLog \
-  /usr/local/bin/stopRandomlog \
-  /usr/local/bin/stoprandomlog
+mkdir -p "${TARGET_DIR}"
 
-sudo cp /home/huangxingke/project/Python/script/start_random_log.sh /usr/local/bin/startRandomLog
-sudo chmod +x /usr/local/bin/startRandomLog
-sudo ln -sf /usr/local/bin/startRandomLog /usr/local/bin/startrandomLog
-sudo ln -sf /usr/local/bin/startRandomLog /usr/local/bin/startRandomlog
-sudo ln -sf /usr/local/bin/startRandomLog /usr/local/bin/startrandomlog
+cp "${SCRIPT_DIR}/update_random_log_script.sh" "${TARGET_DIR}/update_random_log_script"
+chmod +x "${TARGET_DIR}/update_random_log_script"
+
+rm -f \
+  "${TARGET_DIR}/start_random_log" \
+  "${TARGET_DIR}/stop_random_log" \
+  "${TARGET_DIR}/startRandomLog" \
+  "${TARGET_DIR}/startrandomLog" \
+  "${TARGET_DIR}/startRandomlog" \
+  "${TARGET_DIR}/startrandomlog" \
+  "${TARGET_DIR}/stopRandomLog" \
+  "${TARGET_DIR}/stoprandomLog" \
+  "${TARGET_DIR}/stopRandomlog" \
+  "${TARGET_DIR}/stoprandomlog"
+
+cp "${SCRIPT_DIR}/start_random_log.sh" "${TARGET_DIR}/startRandomLog"
+chmod +x "${TARGET_DIR}/startRandomLog"
+ln -sf "${TARGET_DIR}/startRandomLog" "${TARGET_DIR}/startrandomLog"
+ln -sf "${TARGET_DIR}/startRandomLog" "${TARGET_DIR}/startRandomlog"
+ln -sf "${TARGET_DIR}/startRandomLog" "${TARGET_DIR}/startrandomlog"
+ln -sf "${TARGET_DIR}/startRandomLog" "${TARGET_DIR}/start_random_log"
 echo "更新--- startRandomLog 快捷方式完成"
 
-sudo cp /home/huangxingke/project/Python/script/stop_random_log.sh /usr/local/bin/stopRandomLog
-sudo chmod +x /usr/local/bin/stopRandomLog
-sudo ln -sf /usr/local/bin/stopRandomLog /usr/local/bin/stoprandomLog
-sudo ln -sf /usr/local/bin/stopRandomLog /usr/local/bin/stopRandomlog
-sudo ln -sf /usr/local/bin/stopRandomLog /usr/local/bin/stoprandomlog
+cp "${SCRIPT_DIR}/stop_random_log.sh" "${TARGET_DIR}/stopRandomLog"
+chmod +x "${TARGET_DIR}/stopRandomLog"
+ln -sf "${TARGET_DIR}/stopRandomLog" "${TARGET_DIR}/stoprandomLog"
+ln -sf "${TARGET_DIR}/stopRandomLog" "${TARGET_DIR}/stopRandomlog"
+ln -sf "${TARGET_DIR}/stopRandomLog" "${TARGET_DIR}/stoprandomlog"
+ln -sf "${TARGET_DIR}/stopRandomLog" "${TARGET_DIR}/stop_random_log"
 echo "更新--- stopRandomLog 快捷方式完成"

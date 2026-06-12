@@ -3,46 +3,55 @@
 set -e
 
 SCRIPT_DIR="/home/huangxingke/project/Python/script"
+TARGET_DIR="${HOME}/.local/bin"
 COMPLETION_SCRIPT="${SCRIPT_DIR}/iflytek_sys_completion.sh"
 BASHRC_FILE="${HOME}/.bashrc"
 INPUTRC_FILE="${HOME}/.inputrc"
 COMPLETION_SOURCE_LINE="[ -f \"${COMPLETION_SCRIPT}\" ] && source \"${COMPLETION_SCRIPT}\""
 
+mkdir -p "${TARGET_DIR}"
+
 OLD_COMMANDS=(
-  /usr/local/bin/update_d01_Int_sys
-  /usr/local/bin/update_d01_Int_sys.sh
-  /usr/local/bin/update_d01_sys
-  /usr/local/bin/update_d01_sys.sh
-  /usr/local/bin/update_d01p_int_sys
-  /usr/local/bin/update_d01p_int_sys.sh
-  /usr/local/bin/update_kp31_int_sys
-  /usr/local/bin/update_kp31_int_sys.sh
-  /usr/local/bin/update_kp31_sys
-  /usr/local/bin/update_kp31_sys.sh
-  /usr/local/bin/updated01IntSys
-  /usr/local/bin/updateD01intSys
-  /usr/local/bin/updated01intSys
-  /usr/local/bin/updated01Sys
-  /usr/local/bin/updateD01sys
-  /usr/local/bin/updated01sys
-  /usr/local/bin/updated01pIntSys
-  /usr/local/bin/updateD01pintSys
-  /usr/local/bin/updated01pintSys
-  /usr/local/bin/updatekp31IntSys
-  /usr/local/bin/updateKp31intSys
-  /usr/local/bin/updatekp31intSys
-  /usr/local/bin/updatekp31Sys
-  /usr/local/bin/updateKp31sys
-  /usr/local/bin/updatekp31sys
+  "${TARGET_DIR}/update_d01_Int_sys"
+  "${TARGET_DIR}/update_d01_Int_sys.sh"
+  "${TARGET_DIR}/update_d01_sys"
+  "${TARGET_DIR}/update_d01_sys.sh"
+  "${TARGET_DIR}/update_d01p_int_sys"
+  "${TARGET_DIR}/update_d01p_int_sys.sh"
+  "${TARGET_DIR}/update_kp31_int_sys"
+  "${TARGET_DIR}/update_kp31_int_sys.sh"
+  "${TARGET_DIR}/update_kp31_sys"
+  "${TARGET_DIR}/update_kp31_sys.sh"
+  "${TARGET_DIR}/updateIflytekSysScript"
+  "${TARGET_DIR}/updateD01IntSys"
+  "${TARGET_DIR}/updated01IntSys"
+  "${TARGET_DIR}/updateD01intSys"
+  "${TARGET_DIR}/updated01intSys"
+  "${TARGET_DIR}/updateD01Sys"
+  "${TARGET_DIR}/updated01Sys"
+  "${TARGET_DIR}/updateD01sys"
+  "${TARGET_DIR}/updated01sys"
+  "${TARGET_DIR}/updateD01pIntSys"
+  "${TARGET_DIR}/updated01pIntSys"
+  "${TARGET_DIR}/updateD01pintSys"
+  "${TARGET_DIR}/updated01pintSys"
+  "${TARGET_DIR}/updateKp31IntSys"
+  "${TARGET_DIR}/updatekp31IntSys"
+  "${TARGET_DIR}/updateKp31intSys"
+  "${TARGET_DIR}/updatekp31intSys"
+  "${TARGET_DIR}/updateKp31Sys"
+  "${TARGET_DIR}/updatekp31Sys"
+  "${TARGET_DIR}/updateKp31sys"
+  "${TARGET_DIR}/updatekp31sys"
 )
 
 install_command() {
   local source_file="$1"
   local target_name="$2"
 
-  sudo cp "${SCRIPT_DIR}/${source_file}" "/usr/local/bin/${target_name}"
-  sudo chmod +x "/usr/local/bin/${target_name}"
-  echo "更新--- /usr/local/bin/${target_name} 成功"
+  cp "${SCRIPT_DIR}/${source_file}" "${TARGET_DIR}/${target_name}"
+  chmod +x "${TARGET_DIR}/${target_name}"
+  echo "更新--- ${TARGET_DIR}/${target_name} 成功"
 }
 
 ensure_case_insensitive_completion() {
@@ -65,37 +74,47 @@ ensure_completion_source() {
   fi
 }
 
-sudo cp "${SCRIPT_DIR}/update_iflytek_sys_script.sh" /usr/local/bin/updateIflytekSysScript
-sudo chmod +x /usr/local/bin/updateIflytekSysScript
-echo "更新--- /usr/local/bin/updateIflytekSysScript 成功"
+cp "${SCRIPT_DIR}/update_iflytek_sys_script.sh" "${TARGET_DIR}/updateIflytekSysScript"
+chmod +x "${TARGET_DIR}/updateIflytekSysScript"
+echo "更新--- ${TARGET_DIR}/updateIflytekSysScript 成功"
 
-sudo rm -f "${OLD_COMMANDS[@]}"
+rm -f "${OLD_COMMANDS[@]}"
 echo "更新--- 已移除老快捷方式"
 
 install_command update_d01_Int_sys.sh updateD01IntSys
-sudo ln -sf /usr/local/bin/updateD01IntSys /usr/local/bin/updated01IntSys
-sudo ln -sf /usr/local/bin/updateD01IntSys /usr/local/bin/updateD01intSys
-sudo ln -sf /usr/local/bin/updateD01IntSys /usr/local/bin/updated01intSys
+ln -sf "${TARGET_DIR}/updateD01IntSys" "${TARGET_DIR}/updated01IntSys"
+ln -sf "${TARGET_DIR}/updateD01IntSys" "${TARGET_DIR}/updateD01intSys"
+ln -sf "${TARGET_DIR}/updateD01IntSys" "${TARGET_DIR}/updated01intSys"
+ln -sf "${TARGET_DIR}/updateD01IntSys" "${TARGET_DIR}/update_d01_Int_sys"
+ln -sf "${TARGET_DIR}/updateD01IntSys" "${TARGET_DIR}/update_d01_Int_sys.sh"
 
 install_command update_d01_sys.sh updateD01Sys
-sudo ln -sf /usr/local/bin/updateD01Sys /usr/local/bin/updated01Sys
-sudo ln -sf /usr/local/bin/updateD01Sys /usr/local/bin/updateD01sys
-sudo ln -sf /usr/local/bin/updateD01Sys /usr/local/bin/updated01sys
+ln -sf "${TARGET_DIR}/updateD01Sys" "${TARGET_DIR}/updated01Sys"
+ln -sf "${TARGET_DIR}/updateD01Sys" "${TARGET_DIR}/updateD01sys"
+ln -sf "${TARGET_DIR}/updateD01Sys" "${TARGET_DIR}/updated01sys"
+ln -sf "${TARGET_DIR}/updateD01Sys" "${TARGET_DIR}/update_d01_sys"
+ln -sf "${TARGET_DIR}/updateD01Sys" "${TARGET_DIR}/update_d01_sys.sh"
 
 install_command update_d01p_int_sys.sh updateD01pIntSys
-sudo ln -sf /usr/local/bin/updateD01pIntSys /usr/local/bin/updated01pIntSys
-sudo ln -sf /usr/local/bin/updateD01pIntSys /usr/local/bin/updateD01pintSys
-sudo ln -sf /usr/local/bin/updateD01pIntSys /usr/local/bin/updated01pintSys
+ln -sf "${TARGET_DIR}/updateD01pIntSys" "${TARGET_DIR}/updated01pIntSys"
+ln -sf "${TARGET_DIR}/updateD01pIntSys" "${TARGET_DIR}/updateD01pintSys"
+ln -sf "${TARGET_DIR}/updateD01pIntSys" "${TARGET_DIR}/updated01pintSys"
+ln -sf "${TARGET_DIR}/updateD01pIntSys" "${TARGET_DIR}/update_d01p_int_sys"
+ln -sf "${TARGET_DIR}/updateD01pIntSys" "${TARGET_DIR}/update_d01p_int_sys.sh"
 
 install_command update_kp31_int_sys.sh updateKp31IntSys
-sudo ln -sf /usr/local/bin/updateKp31IntSys /usr/local/bin/updatekp31IntSys
-sudo ln -sf /usr/local/bin/updateKp31IntSys /usr/local/bin/updateKp31intSys
-sudo ln -sf /usr/local/bin/updateKp31IntSys /usr/local/bin/updatekp31intSys
+ln -sf "${TARGET_DIR}/updateKp31IntSys" "${TARGET_DIR}/updatekp31IntSys"
+ln -sf "${TARGET_DIR}/updateKp31IntSys" "${TARGET_DIR}/updateKp31intSys"
+ln -sf "${TARGET_DIR}/updateKp31IntSys" "${TARGET_DIR}/updatekp31intSys"
+ln -sf "${TARGET_DIR}/updateKp31IntSys" "${TARGET_DIR}/update_kp31_int_sys"
+ln -sf "${TARGET_DIR}/updateKp31IntSys" "${TARGET_DIR}/update_kp31_int_sys.sh"
 
 install_command update_kp31_sys.sh updateKp31Sys
-sudo ln -sf /usr/local/bin/updateKp31Sys /usr/local/bin/updatekp31Sys
-sudo ln -sf /usr/local/bin/updateKp31Sys /usr/local/bin/updateKp31sys
-sudo ln -sf /usr/local/bin/updateKp31Sys /usr/local/bin/updatekp31sys
+ln -sf "${TARGET_DIR}/updateKp31Sys" "${TARGET_DIR}/updatekp31Sys"
+ln -sf "${TARGET_DIR}/updateKp31Sys" "${TARGET_DIR}/updateKp31sys"
+ln -sf "${TARGET_DIR}/updateKp31Sys" "${TARGET_DIR}/updatekp31sys"
+ln -sf "${TARGET_DIR}/updateKp31Sys" "${TARGET_DIR}/update_kp31_sys"
+ln -sf "${TARGET_DIR}/updateKp31Sys" "${TARGET_DIR}/update_kp31_sys.sh"
 
 ensure_case_insensitive_completion
 ensure_completion_source
