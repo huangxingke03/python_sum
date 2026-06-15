@@ -67,6 +67,24 @@ rm -f \
   "${TARGET_DIR}/rsUI" \
   "${TARGET_DIR}/rsuI" \
   "${TARGET_DIR}/rSuI" \
+  "${TARGET_DIR}/killSystemui" \
+  "${TARGET_DIR}/killsystemUi" \
+  "${TARGET_DIR}/killsystemui" \
+  "${TARGET_DIR}/ksui" \
+  "${TARGET_DIR}/Ksui" \
+  "${TARGET_DIR}/KSui" \
+  "${TARGET_DIR}/KSUI" \
+  "${TARGET_DIR}/KsUi" \
+  "${TARGET_DIR}/KsUI" \
+  "${TARGET_DIR}/KsuI" \
+  "${TARGET_DIR}/KSuI" \
+  "${TARGET_DIR}/kSui" \
+  "${TARGET_DIR}/kSUi" \
+  "${TARGET_DIR}/kSUI" \
+  "${TARGET_DIR}/ksUi" \
+  "${TARGET_DIR}/ksUI" \
+  "${TARGET_DIR}/ksuI" \
+  "${TARGET_DIR}/kSuI" \
   "${TARGET_DIR}/voice_build_common.sh"
 
 echo "更新--- 共享语音打包脚本"
@@ -131,25 +149,24 @@ ln -sf "${TARGET_DIR}/voiceSettingKp31" "${TARGET_DIR}/voicesettingkp31"
 ln -sf "${TARGET_DIR}/voiceSettingKp31" "${TARGET_DIR}/voice_setting_kp31"
 echo "更新---KP31语音设置打包推包脚本更新成功"
 
-cp "${SCRIPT_DIR}/restart_systemui.sh" "${TARGET_DIR}/restartSystemUi"
+cp "${SCRIPT_DIR}/kill_systemui.sh" "${TARGET_DIR}/killSystemui"
 echo "更新--- SystemUI 重启快捷脚本"
-chmod +x "${TARGET_DIR}/restartSystemUi"
-ln -sf "${TARGET_DIR}/restartSystemUi" "${TARGET_DIR}/restartsystemUi"
-ln -sf "${TARGET_DIR}/restartSystemUi" "${TARGET_DIR}/restartSystemui"
-ln -sf "${TARGET_DIR}/restartSystemUi" "${TARGET_DIR}/restartsystemui"
-ln -sf "${TARGET_DIR}/restartSystemUi" "${TARGET_DIR}/rsui"
-ln -sf "${TARGET_DIR}/restartSystemUi" "${TARGET_DIR}/Rsui"
-ln -sf "${TARGET_DIR}/restartSystemUi" "${TARGET_DIR}/RSui"
-ln -sf "${TARGET_DIR}/restartSystemUi" "${TARGET_DIR}/RSUI"
-ln -sf "${TARGET_DIR}/restartSystemUi" "${TARGET_DIR}/RsUi"
-ln -sf "${TARGET_DIR}/restartSystemUi" "${TARGET_DIR}/RsUI"
-ln -sf "${TARGET_DIR}/restartSystemUi" "${TARGET_DIR}/RsuI"
-ln -sf "${TARGET_DIR}/restartSystemUi" "${TARGET_DIR}/RSuI"
-ln -sf "${TARGET_DIR}/restartSystemUi" "${TARGET_DIR}/rSui"
-ln -sf "${TARGET_DIR}/restartSystemUi" "${TARGET_DIR}/rSUi"
-ln -sf "${TARGET_DIR}/restartSystemUi" "${TARGET_DIR}/rSUI"
-ln -sf "${TARGET_DIR}/restartSystemUi" "${TARGET_DIR}/rsUi"
-ln -sf "${TARGET_DIR}/restartSystemUi" "${TARGET_DIR}/rsUI"
-ln -sf "${TARGET_DIR}/restartSystemUi" "${TARGET_DIR}/rsuI"
-ln -sf "${TARGET_DIR}/restartSystemUi" "${TARGET_DIR}/rSuI"
+chmod +x "${TARGET_DIR}/killSystemui"
+ln -sf "${TARGET_DIR}/killSystemui" "${TARGET_DIR}/killsystemUi"
+ln -sf "${TARGET_DIR}/killSystemui" "${TARGET_DIR}/killsystemui"
+ln -sf "${TARGET_DIR}/killSystemui" "${TARGET_DIR}/ksui"
+ln -sf "${TARGET_DIR}/killSystemui" "${TARGET_DIR}/Ksui"
+ln -sf "${TARGET_DIR}/killSystemui" "${TARGET_DIR}/KSui"
+ln -sf "${TARGET_DIR}/killSystemui" "${TARGET_DIR}/KSUI"
+ln -sf "${TARGET_DIR}/killSystemui" "${TARGET_DIR}/KsUi"
+ln -sf "${TARGET_DIR}/killSystemui" "${TARGET_DIR}/KsUI"
+ln -sf "${TARGET_DIR}/killSystemui" "${TARGET_DIR}/KsuI"
+ln -sf "${TARGET_DIR}/killSystemui" "${TARGET_DIR}/KSuI"
+ln -sf "${TARGET_DIR}/killSystemui" "${TARGET_DIR}/kSui"
+ln -sf "${TARGET_DIR}/killSystemui" "${TARGET_DIR}/kSUi"
+ln -sf "${TARGET_DIR}/killSystemui" "${TARGET_DIR}/kSUI"
+ln -sf "${TARGET_DIR}/killSystemui" "${TARGET_DIR}/ksUi"
+ln -sf "${TARGET_DIR}/killSystemui" "${TARGET_DIR}/ksUI"
+ln -sf "${TARGET_DIR}/killSystemui" "${TARGET_DIR}/ksuI"
+ln -sf "${TARGET_DIR}/killSystemui" "${TARGET_DIR}/kSuI"
 echo "更新---SystemUI 重启快捷脚本更新成功"

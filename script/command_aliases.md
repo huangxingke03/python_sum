@@ -24,26 +24,25 @@
 - Variant: `voiceSettingkp31`
 - Variant: `voicesettingkp31`
 
-## Restart SystemUI
-- Standard: `restartSystemUi`
-- Variant: `restartsystemUi`
-- Variant: `restartSystemui`
-- Variant: `restartsystemui`
-- Shortcut: `rsui`
-- Shortcut Variant: `Rsui`
-- Shortcut Variant: `RSui`
-- Shortcut Variant: `RSUI`
-- Shortcut Variant: `RsUi`
-- Shortcut Variant: `RsUI`
-- Shortcut Variant: `RsuI`
-- Shortcut Variant: `RSuI`
-- Shortcut Variant: `rSui`
-- Shortcut Variant: `rSUi`
-- Shortcut Variant: `rSUI`
-- Shortcut Variant: `rsUi`
-- Shortcut Variant: `rsUI`
-- Shortcut Variant: `rsuI`
-- Shortcut Variant: `rSuI`
+## Kill SystemUI
+- Standard: `killSystemui`
+- Variant: `killsystemUi`
+- Variant: `killsystemui`
+- Shortcut: `ksui`
+- Shortcut Variant: `Ksui`
+- Shortcut Variant: `KSui`
+- Shortcut Variant: `KSUI`
+- Shortcut Variant: `KsUi`
+- Shortcut Variant: `KsUI`
+- Shortcut Variant: `KsuI`
+- Shortcut Variant: `KSuI`
+- Shortcut Variant: `kSui`
+- Shortcut Variant: `kSUi`
+- Shortcut Variant: `kSUI`
+- Shortcut Variant: `ksUi`
+- Shortcut Variant: `ksUI`
+- Shortcut Variant: `ksuI`
+- Shortcut Variant: `kSuI`
 
 ## Random Log
 - Standard: `startRandomLog`
@@ -95,8 +94,8 @@
 ```bash
 voiceAssistantKp31 -s <device_serial>
 voiceassistantkp31 -s <device_serial>
-rsui -s <device_serial>
-restartsystemui -s <device_serial>
+ksui -s <device_serial>
+killsystemui -s <device_serial>
 startRandomlog -s <device_serial>
 updatekp31sys -s <device_serial>
 updateDownloadjira
