@@ -54,7 +54,9 @@ _voice_completion_reset() {
         ./voice_assistant_kp31.sh
         ./voice_setting_d01.sh
         ./voice_setting_kp31.sh
+        ./restart_systemui.sh
         voice_assistant_d01.sh
+        restart_systemui.sh
         voice_assistant_kp31.sh
         voice_setting_d01.sh
         voice_setting_kp31.sh
@@ -91,6 +93,25 @@ _voice_completion_reset() {
         /usr/local/bin/stWc
         /usr/local/bin/stWC
         /usr/local/bin/stwC
+        /usr/local/bin/restartSystemUi
+        /usr/local/bin/restartsystemUi
+        /usr/local/bin/restartSystemui
+        /usr/local/bin/restartsystemui
+        /usr/local/bin/rsui
+        /usr/local/bin/Rsui
+        /usr/local/bin/RSui
+        /usr/local/bin/RSUI
+        /usr/local/bin/RsUi
+        /usr/local/bin/RsUI
+        /usr/local/bin/RsuI
+        /usr/local/bin/RSuI
+        /usr/local/bin/rSui
+        /usr/local/bin/rSUi
+        /usr/local/bin/rSUI
+        /usr/local/bin/rsUi
+        /usr/local/bin/rsUI
+        /usr/local/bin/rsuI
+        /usr/local/bin/rSuI
         voiceAssistantD01
         voiceassistantD01
         voiceAssistantd01
@@ -124,6 +145,25 @@ _voice_completion_reset() {
         stWc
         stWC
         stwC
+        restartSystemUi
+        restartsystemUi
+        restartSystemui
+        restartsystemui
+        rsui
+        Rsui
+        RSui
+        RSUI
+        RsUi
+        RsUI
+        RsuI
+        RSuI
+        rSui
+        rSUi
+        rSUI
+        rsUi
+        rsUI
+        rsuI
+        rSuI
     )
 
     for command_name in "${all_commands[@]}"; do
@@ -175,6 +215,25 @@ _voice_completion_bind() {
         /usr/local/bin/stWc
         /usr/local/bin/stWC
         /usr/local/bin/stwC
+        /usr/local/bin/restartSystemUi
+        /usr/local/bin/restartsystemUi
+        /usr/local/bin/restartSystemui
+        /usr/local/bin/restartsystemui
+        /usr/local/bin/rsui
+        /usr/local/bin/Rsui
+        /usr/local/bin/RSui
+        /usr/local/bin/RSUI
+        /usr/local/bin/RsUi
+        /usr/local/bin/RsUI
+        /usr/local/bin/RsuI
+        /usr/local/bin/RSuI
+        /usr/local/bin/rSui
+        /usr/local/bin/rSUi
+        /usr/local/bin/rSUI
+        /usr/local/bin/rsUi
+        /usr/local/bin/rsUI
+        /usr/local/bin/rsuI
+        /usr/local/bin/rSuI
         voiceAssistantD01
         voiceassistantD01
         voiceAssistantd01
@@ -208,6 +267,25 @@ _voice_completion_bind() {
         stWc
         stWC
         stwC
+        restartSystemUi
+        restartsystemUi
+        restartSystemui
+        restartsystemui
+        rsui
+        Rsui
+        RSui
+        RSUI
+        RsUi
+        RsUI
+        RsuI
+        RSuI
+        rSui
+        rSUi
+        rSUI
+        rsUi
+        rsUI
+        rsuI
+        rSuI
     )
 
     for command_name in "${supported_commands[@]}"; do

@@ -48,6 +48,25 @@ rm -f \
   "${TARGET_DIR}/voicesettingKp31" \
   "${TARGET_DIR}/voiceSettingkp31" \
   "${TARGET_DIR}/voicesettingkp31" \
+  "${TARGET_DIR}/restartSystemUi" \
+  "${TARGET_DIR}/restartsystemUi" \
+  "${TARGET_DIR}/restartSystemui" \
+  "${TARGET_DIR}/restartsystemui" \
+  "${TARGET_DIR}/rsui" \
+  "${TARGET_DIR}/Rsui" \
+  "${TARGET_DIR}/RSui" \
+  "${TARGET_DIR}/RSUI" \
+  "${TARGET_DIR}/RsUi" \
+  "${TARGET_DIR}/RsUI" \
+  "${TARGET_DIR}/RsuI" \
+  "${TARGET_DIR}/RSuI" \
+  "${TARGET_DIR}/rSui" \
+  "${TARGET_DIR}/rSUi" \
+  "${TARGET_DIR}/rSUI" \
+  "${TARGET_DIR}/rsUi" \
+  "${TARGET_DIR}/rsUI" \
+  "${TARGET_DIR}/rsuI" \
+  "${TARGET_DIR}/rSuI" \
   "${TARGET_DIR}/voice_build_common.sh"
 
 echo "更新--- 共享语音打包脚本"
@@ -111,3 +130,26 @@ ln -sf "${TARGET_DIR}/voiceSettingKp31" "${TARGET_DIR}/voiceSettingkp31"
 ln -sf "${TARGET_DIR}/voiceSettingKp31" "${TARGET_DIR}/voicesettingkp31"
 ln -sf "${TARGET_DIR}/voiceSettingKp31" "${TARGET_DIR}/voice_setting_kp31"
 echo "更新---KP31语音设置打包推包脚本更新成功"
+
+cp "${SCRIPT_DIR}/restart_systemui.sh" "${TARGET_DIR}/restartSystemUi"
+echo "更新--- SystemUI 重启快捷脚本"
+chmod +x "${TARGET_DIR}/restartSystemUi"
+ln -sf "${TARGET_DIR}/restartSystemUi" "${TARGET_DIR}/restartsystemUi"
+ln -sf "${TARGET_DIR}/restartSystemUi" "${TARGET_DIR}/restartSystemui"
+ln -sf "${TARGET_DIR}/restartSystemUi" "${TARGET_DIR}/restartsystemui"
+ln -sf "${TARGET_DIR}/restartSystemUi" "${TARGET_DIR}/rsui"
+ln -sf "${TARGET_DIR}/restartSystemUi" "${TARGET_DIR}/Rsui"
+ln -sf "${TARGET_DIR}/restartSystemUi" "${TARGET_DIR}/RSui"
+ln -sf "${TARGET_DIR}/restartSystemUi" "${TARGET_DIR}/RSUI"
+ln -sf "${TARGET_DIR}/restartSystemUi" "${TARGET_DIR}/RsUi"
+ln -sf "${TARGET_DIR}/restartSystemUi" "${TARGET_DIR}/RsUI"
+ln -sf "${TARGET_DIR}/restartSystemUi" "${TARGET_DIR}/RsuI"
+ln -sf "${TARGET_DIR}/restartSystemUi" "${TARGET_DIR}/RSuI"
+ln -sf "${TARGET_DIR}/restartSystemUi" "${TARGET_DIR}/rSui"
+ln -sf "${TARGET_DIR}/restartSystemUi" "${TARGET_DIR}/rSUi"
+ln -sf "${TARGET_DIR}/restartSystemUi" "${TARGET_DIR}/rSUI"
+ln -sf "${TARGET_DIR}/restartSystemUi" "${TARGET_DIR}/rsUi"
+ln -sf "${TARGET_DIR}/restartSystemUi" "${TARGET_DIR}/rsUI"
+ln -sf "${TARGET_DIR}/restartSystemUi" "${TARGET_DIR}/rsuI"
+ln -sf "${TARGET_DIR}/restartSystemUi" "${TARGET_DIR}/rSuI"
+echo "更新---SystemUI 重启快捷脚本更新成功"
