@@ -7,6 +7,10 @@ SOURCE_DIR="/home/huangxingke/project/Python/script"
 
 mkdir -p "${TARGET_DIR}"
 
+cp "${SOURCE_DIR}/download_jira_cookie.sh" "${TARGET_DIR}/download_jira_cookie.sh"
+chmod +x "${TARGET_DIR}/download_jira_cookie.sh"
+echo "更新--- ${TARGET_DIR}/download_jira_cookie.sh 成功----"
+
 rm -f \
   "${TARGET_DIR}/update_download_jira" \
   "${TARGET_DIR}/download_jira" \

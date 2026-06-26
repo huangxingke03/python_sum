@@ -11,6 +11,22 @@ fi
 #       download_jira_filtered DP-5927
 # =============================================
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+COOKIE_FILE="${SCRIPT_DIR}/download_jira_cookie.sh"
+
+if [ ! -f "$COOKIE_FILE" ]; then
+    echo "❌ 缺少 Cookie 配置文件: $COOKIE_FILE"
+    exit 1
+fi
+
+# shellcheck disable=SC1090
+source "$COOKIE_FILE"
+
+if [ -z "$COOKIE" ]; then
+    echo "❌ Cookie 配置为空，请检查: $COOKIE_FILE"
+    exit 1
+fi
+
 if [ -z "$1" ]; then
     echo "用法: download_jira_filtered <JIRA单号>"
     echo "示例: download_jira_filtered CHYKP31-1028"
@@ -24,9 +40,6 @@ SAVE_DIR="/home/huangxingke/下载/${TICKET}"
 echo "🧹 正在清理旧文件..."
 rm -rf "$SAVE_DIR"          # 删除旧文件夹及所有内容
 mkdir -p "$SAVE_DIR"
-
-# ==================== Cookie 配置（请保持最新） ====================
-COOKIE="JSESSIONID=B27DDFAFB3420DA9C0F0935849920D19; atlassian.xsrf.token=BWB8-5DWA-IKRE-Q10M_edd0a58de2bcec38f5febc0ff979a985db8b18b9_lin; jira.editor.user.mode=source"
 
 echo "══════════════════════════════════════"
 echo "🚀 开始下载 JIRA: $TICKET（过滤 mcu_/qnx_ 前缀和 .asc 附件）"
