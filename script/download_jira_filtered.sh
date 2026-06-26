@@ -5,15 +5,15 @@ if [ -z "${BASH_VERSION:-}" ]; then
 fi
 
 # =============================================
-# JIRA 一键下载工具（全局版）
-# 用法: download_jira <JIRA单号>
-# 示例: download_jira CHYKP31-1028
-#       download_jira DP-5927
+# JIRA 附件下载工具（过滤版）
+# 用法: download_jira_filtered <JIRA单号>
+# 示例: download_jira_filtered CHYKP31-1028
+#       download_jira_filtered DP-5927
 # =============================================
 
 if [ -z "$1" ]; then
-    echo "用法: download_jira <JIRA单号>"
-    echo "示例: download_jira CHYKP31-1028"
+    echo "用法: download_jira_filtered <JIRA单号>"
+    echo "示例: download_jira_filtered CHYKP31-1028"
     exit 1
 fi
 
@@ -29,7 +29,7 @@ mkdir -p "$SAVE_DIR"
 COOKIE="JSESSIONID=B27DDFAFB3420DA9C0F0935849920D19; atlassian.xsrf.token=BWB8-5DWA-IKRE-Q10M_edd0a58de2bcec38f5febc0ff979a985db8b18b9_lin; jira.editor.user.mode=source"
 
 echo "══════════════════════════════════════"
-echo "🚀 开始下载 JIRA: $TICKET"
+echo "🚀 开始下载 JIRA: $TICKET（过滤 mcu_/qnx_ 前缀和 .asc 附件）"
 echo "保存目录: $SAVE_DIR （旧文件已清理）"
 echo "══════════════════════════════════════"
 
@@ -38,6 +38,18 @@ should_show_progress() {
     local lower_name="${1,,}"
     case "$lower_name" in
         *.zip|*.z[0-9][0-9]|*.tar.gz|*.tgz|*.7z|*.[0-9][0-9][0-9]|*.rar|*.r[0-9][0-9]|*.part[0-9]*.rar|*.log|*.mp4|*.mov|*.mkv|*.txt)
+            return 0
+            ;;
+        *)
+            return 1
+            ;;
+    esac
+}
+
+should_skip_attachment() {
+    local lower_name="${1,,}"
+    case "$lower_name" in
+        mcu_*|qnx_*|*.asc)
             return 0
             ;;
         *)
@@ -244,6 +256,11 @@ mapfile -t ATTACHMENTS < <(echo "$JSON" | jq -r '.fields.attachment[]? | "\(.con
 for attachment in "${ATTACHMENTS[@]}"; do
     IFS='|' read -r url filename <<< "$attachment"
     if [ -n "$url" ] && [ -n "$filename" ]; then
+        if should_skip_attachment "$filename"; then
+            echo "⏭️ 跳过附件: $filename"
+            continue
+        fi
+
         filepath="${SAVE_DIR}/${filename}"
         echo "⬇️ 下载: $filename"
 

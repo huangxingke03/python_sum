@@ -17,6 +17,18 @@ _reload_voice_completion() {
     source "${SCRIPT_DIR}/voice_assistant_completion.sh"
 }
 
+_reload_scrcpy_completion() {
+    # shellcheck disable=SC1091
+    source "${SCRIPT_DIR}/scrcpy_completion.sh"
+}
+
+reload_local_completions() {
+    _reload_random_log_completion
+    _reload_iflytek_completion
+    _reload_voice_completion
+    _reload_scrcpy_completion
+}
+
 update_random_log_script() {
     command bash "${SCRIPT_DIR}/update_random_log_script.sh" "$@" || return $?
     _reload_random_log_completion
@@ -30,4 +42,5 @@ updateIflytekSysScript() {
 update_voice_build_script() {
     command bash "${SCRIPT_DIR}/update_voice_build_script.sh" "$@" || return $?
     _reload_voice_completion
+    _reload_scrcpy_completion
 }
