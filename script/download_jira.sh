@@ -291,102 +291,155 @@ done
 
 # ==================== 统一解压（全部文件下载完毕后执行）====================
 cd "$SAVE_DIR" || exit 1
-shopt -s nullglob
+shopt -s nullglob nocaseglob
 
-# --- ZIP: 单文件(.zip) + 分卷(.zip + .z01/.z02/...) ---
-for f in *.zip; do
-    [ -f "$f" ] || continue
-    base="${f%.zip}"
-    companions=( "${base}".z[0-9][0-9] "${base}".Z[0-9][0-9] )
-    has_companion=false
-    for c in "${companions[@]}"; do [ -f "$c" ] && has_companion=true && break; done
-    if $has_companion; then
-        vol_count=$(ls "${base}".z[0-9][0-9] "${base}".Z[0-9][0-9] 2>/dev/null | wc -l)
-        echo "📦 解压 ZIP 分卷: $f（共 $((vol_count + 1)) 个分卷）"
-        7z x -y -aoa "$f" >/dev/null 2>&1 \
-            && echo "   ✅ ZIP 分卷解压完成" \
-            || { echo "   ❌ ZIP 分卷解压失败："; 7z x -y -aoa "$f" 2>&1 | tail -n 20; echo "   💡 手动：cd \"$SAVE_DIR\" && 7z x \"$f\""; }
-    else
-        echo "📦 解压 ZIP: $f"
-        unzip -o "$f" -d . >/dev/null 2>&1 \
-            && echo "   ✅ ZIP 解压完成" \
-            || { echo "   ❌ ZIP 解压失败"; echo "   💡 手动：cd \"$SAVE_DIR\" && unzip \"$f\""; }
-    fi
-done
+declare -A extracted_archives_seen
 
-# --- TAR.GZ: 单文件 ---
-for f in *.tar.gz *.tgz; do
-    [ -f "$f" ] || continue
-    echo "📦 解压 TAR.GZ: $f"
-    tar -xzf "$f" -C . \
-        && echo "   ✅ TAR.GZ 解压完成" \
-        || { echo "   ❌ TAR.GZ 解压失败"; echo "   💡 手动：cd \"$SAVE_DIR\" && tar -xzf \"$f\""; }
-done
+is_supported_archive() {
+    local lower_name="${1,,}"
+    case "$lower_name" in
+        *.zip|*.tar.gz|*.tgz|*.7z|*.001|*.rar|*.part1.rar)
+            return 0
+            ;;
+        *)
+            return 1
+            ;;
+    esac
+}
 
-# --- 7z: 单文件(.7z) + 分卷(*.001/*.002/...) ---
-declare -A _7z_base_done
-for first_vol in *.001; do
-    [ -f "$first_vol" ] || continue
-    base="${first_vol%.001}"
-    vol_count=$(ls "${base}".[0-9][0-9][0-9] 2>/dev/null | wc -l)
-    echo "📦 解压 7z 分卷: $first_vol（共 $vol_count 个分卷）"
-    if 7z x -y -aoa "$first_vol" >/dev/null 2>&1; then
-        echo "   ✅ 7z 分卷解压完成"
-    elif command -v unar >/dev/null 2>&1 && unar -force-overwrite "$first_vol" >/dev/null 2>&1; then
-        echo "   ✅ unar 解压完成"
-    else
-        echo "   ❌ 7z 分卷解压失败："; 7z x -y -aoa "$first_vol" 2>&1 | tail -n 20
-        echo "   💡 手动：cd \"$SAVE_DIR\" && 7z x \"$first_vol\""
-    fi
-    _7z_base_done["$base"]=1
-done
-for f in *.7z; do
-    [ -f "$f" ] || continue
-    [[ -n "${_7z_base_done[$f]}" ]] && continue
-    echo "📦 解压 7z: $f"
-    if 7z x -y -aoa "$f" >/dev/null 2>&1; then
-        echo "   ✅ 7z 解压完成"
-    elif command -v unar >/dev/null 2>&1 && unar -force-overwrite "$f" >/dev/null 2>&1; then
-        echo "   ✅ unar 解压完成"
-    else
-        echo "   ❌ 7z 解压失败："; 7z x -y -aoa "$f" 2>&1 | tail -n 20
-        echo "   💡 手动：cd \"$SAVE_DIR\" && 7z x \"$f\""
-    fi
-done
+extract_one_archive() {
+    local f="$1"
+    local lower_name="${f,,}"
+    local base companions has_companion=false vol_count
 
-# --- RAR: 单文件 + 新格式分卷(.part1.rar/.part2.rar/...) + 旧格式分卷(.rar/.r00/.r01/...) ---
-if command -v unrar >/dev/null 2>&1; then
-    # 新格式分卷首卷
-    for f in *.part1.rar; do
-        [ -f "$f" ] || continue
-        base="${f%.part1.rar}"
-        vol_count=$(ls "${base}".part[0-9]*.rar 2>/dev/null | wc -l)
-        echo "📦 解压 RAR 分卷(新格式): $f（共 $vol_count 个分卷）"
-        unrar x -o+ "$f" . >/dev/null 2>&1 \
-            && echo "   ✅ RAR 分卷解压完成" \
-            || { echo "   ❌ RAR 分卷解压失败"; echo "   💡 手动：cd \"$SAVE_DIR\" && unrar x \"$f\""; }
+    case "$lower_name" in
+        *.zip)
+            base="${f%.*}"
+            companions=( "${base}".z[0-9][0-9] "${base}".Z[0-9][0-9] )
+            for c in "${companions[@]}"; do
+                [ -f "$c" ] && has_companion=true && break
+            done
+            if $has_companion; then
+                vol_count=$(ls "${base}".z[0-9][0-9] "${base}".Z[0-9][0-9] 2>/dev/null | wc -l)
+                echo "📦 解压 ZIP 分卷: $f（共 $((vol_count + 1)) 个分卷）"
+                7z x -y -aoa "$f" >/dev/null 2>&1 \
+                    && echo "   ✅ ZIP 分卷解压完成" \
+                    || { echo "   ❌ ZIP 分卷解压失败："; 7z x -y -aoa "$f" 2>&1 | tail -n 20; echo "   💡 手动：cd \"$SAVE_DIR\" && 7z x \"$f\""; }
+            else
+                echo "📦 解压 ZIP: $f"
+                unzip -o "$f" -d . >/dev/null 2>&1 \
+                    && echo "   ✅ ZIP 解压完成" \
+                    || { echo "   ❌ ZIP 解压失败"; echo "   💡 手动：cd \"$SAVE_DIR\" && unzip \"$f\""; }
+            fi
+            ;;
+        *.tar.gz|*.tgz)
+            echo "📦 解压 TAR.GZ: $f"
+            tar -xzf "$f" -C . \
+                && echo "   ✅ TAR.GZ 解压完成" \
+                || { echo "   ❌ TAR.GZ 解压失败"; echo "   💡 手动：cd \"$SAVE_DIR\" && tar -xzf \"$f\""; }
+            ;;
+        *.001)
+            base="${f%.*}"
+            vol_count=$(ls "${base}".[0-9][0-9][0-9] 2>/dev/null | wc -l)
+            echo "📦 解压 7z 分卷: $f（共 $vol_count 个分卷）"
+            if 7z x -y -aoa "$f" >/dev/null 2>&1; then
+                echo "   ✅ 7z 分卷解压完成"
+            elif command -v unar >/dev/null 2>&1 && unar -force-overwrite "$f" >/dev/null 2>&1; then
+                echo "   ✅ unar 解压完成"
+            else
+                echo "   ❌ 7z 分卷解压失败："
+                7z x -y -aoa "$f" 2>&1 | tail -n 20
+                echo "   💡 手动：cd \"$SAVE_DIR\" && 7z x \"$f\""
+            fi
+            ;;
+        *.7z)
+            echo "📦 解压 7z: $f"
+            if 7z x -y -aoa "$f" >/dev/null 2>&1; then
+                echo "   ✅ 7z 解压完成"
+            elif command -v unar >/dev/null 2>&1 && unar -force-overwrite "$f" >/dev/null 2>&1; then
+                echo "   ✅ unar 解压完成"
+            else
+                echo "   ❌ 7z 解压失败："
+                7z x -y -aoa "$f" 2>&1 | tail -n 20
+                echo "   💡 手动：cd \"$SAVE_DIR\" && 7z x \"$f\""
+            fi
+            ;;
+        *.part1.rar)
+            if command -v unrar >/dev/null 2>&1; then
+                base="${f%.*}"
+                base="${base%.*}"
+                vol_count=$(ls "${base}".part[0-9]*.rar 2>/dev/null | wc -l)
+                echo "📦 解压 RAR 分卷(新格式): $f（共 $vol_count 个分卷）"
+                unrar x -o+ "$f" . >/dev/null 2>&1 \
+                    && echo "   ✅ RAR 分卷解压完成" \
+                    || { echo "   ❌ RAR 分卷解压失败"; echo "   💡 手动：cd \"$SAVE_DIR\" && unrar x \"$f\""; }
+            else
+                echo "⚠️ 未安装 unrar，RAR 文件跳过（安装：sudo apt install unrar）"
+            fi
+            ;;
+        *.rar)
+            if command -v unrar >/dev/null 2>&1; then
+                if [[ "$lower_name" =~ \.part[0-9]+\.rar$ ]]; then
+                    return 0
+                fi
+                base="${f%.*}"
+                if ls "${base}".r[0-9][0-9] &>/dev/null; then
+                    vol_count=$(( $(ls "${base}".r[0-9][0-9] 2>/dev/null | wc -l) + 1 ))
+                    echo "📦 解压 RAR 分卷(旧格式): $f（共 $vol_count 个分卷）"
+                else
+                    echo "📦 解压 RAR: $f"
+                fi
+                unrar x -o+ "$f" . >/dev/null 2>&1 \
+                    && echo "   ✅ RAR 解压完成" \
+                    || { echo "   ❌ RAR 解压失败"; echo "   💡 手动：cd \"$SAVE_DIR\" && unrar x \"$f\""; }
+            else
+                echo "⚠️ 未安装 unrar，RAR 文件跳过（安装：sudo apt install unrar）"
+            fi
+            ;;
+    esac
+}
+
+extract_archives_recursively() {
+    local archive lower_name processed_in_pass
+
+    while :; do
+        processed_in_pass=0
+        for archive in *; do
+            [ -f "$archive" ] || continue
+            is_supported_archive "$archive" || continue
+
+            lower_name="${archive,,}"
+            case "$lower_name" in
+                *.z[0-9][0-9]|*.r[0-9][0-9])
+                    continue
+                    ;;
+            esac
+            if [[ "$lower_name" =~ \.part[0-9]+\.rar$ ]] && [[ "$lower_name" != *.part1.rar ]]; then
+                continue
+            fi
+            if [[ "$lower_name" =~ \.[0-9]{3}$ ]] && [[ "$lower_name" != *.001 ]]; then
+                continue
+            fi
+
+            [[ -n "${extracted_archives_seen[$archive]}" ]] && continue
+            extracted_archives_seen["$archive"]=1
+            extract_one_archive "$archive"
+            processed_in_pass=1
+        done
+
+        [ "$processed_in_pass" -eq 1 ] || break
     done
-    # 旧格式分卷 + 单文件（排除新格式非首卷）
-    for f in *.rar; do
-        [ -f "$f" ] || continue
-        [[ "$f" == *.part1.rar ]] && continue
-        [[ "$f" =~ \.part[0-9]+\.rar$ ]] && continue
-        base="${f%.rar}"
-        if ls "${base}".r[0-9][0-9] &>/dev/null; then
-            vol_count=$(( $(ls "${base}".r[0-9][0-9] 2>/dev/null | wc -l) + 1 ))
-            echo "📦 解压 RAR 分卷(旧格式): $f（共 $vol_count 个分卷）"
-        else
-            echo "📦 解压 RAR: $f"
-        fi
-        unrar x -o+ "$f" . >/dev/null 2>&1 \
-            && echo "   ✅ RAR 解压完成" \
-            || { echo "   ❌ RAR 解压失败"; echo "   💡 手动：cd \"$SAVE_DIR\" && unrar x \"$f\""; }
-    done
-else
-    echo "⚠️ 未安装 unrar，RAR 文件跳过（安装：sudo apt install unrar）"
+}
+
+extract_archives_recursively
+
+if [ -d "logcat" ]; then
+
+    chmod -R 755 "logcat"
+    echo "🔧 已修正 logcat 目录权限: 755"
 fi
 
-shopt -u nullglob
+shopt -u nullglob nocaseglob
 cd - > /dev/null
 
 echo ""
